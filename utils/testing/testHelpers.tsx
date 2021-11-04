@@ -5,11 +5,10 @@ import request from "supertest";
 import { NextApiHandler } from "next";
 import { apiResolver } from "next/dist/server/api-utils";
 import { createServer } from "http";
-import Providers from "Providers";
 
 // Wrap our tests in a component which adds our providers
 const TestWrapper: React.FC = ({ children }) => {
-  return <Providers>{children}</Providers>;
+  return <div>{children}</div>;
 };
 
 // Use the custom render function to add our wrapper to the tested component
