@@ -55,3 +55,6 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   text: string;
 }
+
+export interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {}
+export interface FooterTileProps extends React.HTMLAttributes<HTMLDivElement> {}
