@@ -58,3 +58,7 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
 
 export interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {}
 export interface FooterTileProps extends React.HTMLAttributes<HTMLDivElement> {}
+export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
+  open: boolean;
+  toggleCallback?: React.MouseEventHandler<HTMLButtonElement>;
+}
