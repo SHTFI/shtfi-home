@@ -11,7 +11,6 @@ describe("<Modal />", () => {
     const element = getByTestId("modal");
     expect(element).toBeInTheDocument();
   });
-
   it("renders child components within modal", () => {
     const { getByTestId, getByText } = render(
       <Modal open={false} data-testid="modal">
@@ -23,12 +22,10 @@ describe("<Modal />", () => {
     const child = getByText(/^hey$/i);
     expect(child).toBeInTheDocument();
   });
-
   it("does not render if no children provided", () => {
     const { container } = render(<Modal open={false} data-testid="modal" />);
     expect(container.querySelector('[data-testid="modal"]')).toBeFalsy();
   });
-
   it("renders underlay component", () => {
     const { container, getByTestId } = render(
       <Modal open={false} data-testid="modal">
@@ -86,7 +83,6 @@ describe("<Modal />", () => {
     expect(wrapper).toBeInTheDocument();
     expect(wrapper?.getAttribute("aria-hidden")).toBe("false");
   });
-
   it("closes when close prop is true", () => {
     const { getByTestId } = render(
       <Modal open={false} data-testid="modal">
