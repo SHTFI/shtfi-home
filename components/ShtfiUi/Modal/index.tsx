@@ -1,9 +1,14 @@
 import { ModalProps } from "../types";
 import { useState } from "react";
+import { Button } from "components";
 
 const Modal: React.FC<ModalProps> = ({
   open = false,
   toggleCallback,
+  buttonProps,
+  buttonLabel,
+  wrapperProps,
+  underlayProps,
   children,
   ...rest
 }) => {
@@ -31,13 +36,21 @@ const Modal: React.FC<ModalProps> = ({
   };
 
   return (
-    <div data-type="wrapper" aria-hidden={!isOpen} onClick={handleToggle}>
-      <span data-type="underlay"></span>
-      <div {...rest}>
-        <button data-type="modal-close"></button>
-        {children}
+    <>
+      <Button {...buttonProps}>{!!buttonLabel ? buttonLabel : "Open"}</Button>
+      <div
+        data-type="wrapper"
+        aria-hidden={!isOpen}
+        onClick={handleToggle}
+        {...wrapperProps}
+      >
+        <span data-type="underlay" {...underlayProps}></span>
+        <div {...rest}>
+          <button data-type="modal-close"></button>
+          {children}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
