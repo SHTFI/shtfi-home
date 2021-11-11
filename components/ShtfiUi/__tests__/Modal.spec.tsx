@@ -11,7 +11,45 @@ describe("<Modal />", () => {
     const element = getByTestId("modal");
     expect(element).toBeInTheDocument();
   });
-
+  it("renders an open button with open text", () => {
+    const { getByTestId, getByText } = render(
+      <Modal
+        open={false}
+        data-testid="modal"
+        buttonProps={{
+          ["data-testid" as string]: "button",
+          clickHandler: jest.fn(),
+        }}
+      >
+        <h1>Hey</h1>
+      </Modal>
+    );
+    const element = getByTestId("modal");
+    expect(element).toBeInTheDocument();
+    const button = getByTestId("button") as HTMLButtonElement;
+    expect(button).toBeInTheDocument();
+    expect(button.disabled);
+  });
+  it("Open button is disabled when modal is open", () => {
+    const { getByTestId, getByText } = render(
+      <Modal
+        open={true}
+        data-testid="modal"
+        buttonProps={{
+          ["data-testid" as string]: "button",
+          clickHandler: jest.fn(),
+        }}
+      >
+        <h1>Hey</h1>
+      </Modal>
+    );
+    const element = getByTestId("modal");
+    expect(element).toBeInTheDocument();
+    const button = getByTestId("button");
+    expect(button).toBeInTheDocument();
+    const buttonByText = getByText(/^open$/i);
+    expect(buttonByText).toBeInTheDocument();
+  });
   it("renders child components within modal", () => {
     const { getByTestId, getByText } = render(
       <Modal open={false} data-testid="modal">
@@ -23,12 +61,10 @@ describe("<Modal />", () => {
     const child = getByText(/^hey$/i);
     expect(child).toBeInTheDocument();
   });
-
   it("does not render if no children provided", () => {
     const { container } = render(<Modal open={false} data-testid="modal" />);
     expect(container.querySelector('[data-testid="modal"]')).toBeFalsy();
   });
-
   it("renders underlay component", () => {
     const { container, getByTestId } = render(
       <Modal open={false} data-testid="modal">
@@ -86,7 +122,6 @@ describe("<Modal />", () => {
     expect(wrapper).toBeInTheDocument();
     expect(wrapper?.getAttribute("aria-hidden")).toBe("false");
   });
-
   it("closes when close prop is true", () => {
     const { getByTestId } = render(
       <Modal open={false} data-testid="modal">
