@@ -1,4 +1,5 @@
 import { NavBrandingProps } from "../types";
+import style from "./NavBar.module.scss";
 
 const NavBranding: React.FC<NavBrandingProps> = ({
   logo,
@@ -15,9 +16,14 @@ const NavBranding: React.FC<NavBrandingProps> = ({
   }
   // Return our branding element
   return (
-    <a href="/" title="Go back home">
+    <a href="/" title="Go back home" className={style.branding}>
       {logo ? (
-        <img src={logo} alt={logoAlt} height={logoWidth} width={logoHeight} />
+        <img
+          src={logo}
+          alt={logoAlt}
+          height={!!logoHeight ? logoHeight : 30}
+          width={!!logoWidth ? logoWidth : 30}
+        />
       ) : null}
       {wording ? <span>{wording}</span> : null}
     </a>
