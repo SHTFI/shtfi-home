@@ -3,7 +3,7 @@ import { NavBarProps } from "../types";
 import NavBranding from "./NavBranding";
 import NavDesktopLinks from "./NavDesktopLinks";
 import NavMobileLinks from "./NavMobileLinks";
-
+import style from "./NavBar.module.scss";
 const NavBar: React.FC<NavBarProps> = ({
   mobileIcon,
   mobileIconAlt,
@@ -18,15 +18,17 @@ const NavBar: React.FC<NavBarProps> = ({
   linkList,
   ...rest
 }) => {
+  // Ensure component is only rendered in the client
   const [isMobile, setIsMobile] = useState<boolean>(true);
   // Set dataset of the nav to decide which nav to show
-  useEffect(() => {
-    setIsMobile(window && window.innerWidth <= 500 ? true : false);
-  }, [window.innerHeight]);
-
+  if (typeof window !== "undefined") {
+    useEffect(() => {
+      setIsMobile(window && window.innerWidth <= 500 ? true : false);
+    }, [window.innerHeight]);
+  }
   return (
-    <div {...rest} data-mob={isMobile}>
-      <nav id="shtfi-mobile-nav-bar">
+    <div className={style.wrapper} {...rest} data-mob={isMobile}>
+      <nav className={style.nav} id="shtfi-mobile-nav-bar">
         {!!logo || !!brandWording ? (
           <NavBranding
             logo={logo}

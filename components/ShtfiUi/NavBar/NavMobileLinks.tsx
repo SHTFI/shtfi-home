@@ -2,6 +2,7 @@ import { NavMobileLinksProps } from "../types";
 import BurgerMenuIcon from "./BurgerMenuIcon";
 import NavLink from "./NavLink";
 import { useState } from "react";
+import style from "./NavBar.module.scss";
 
 const NavMobileLinks: React.FC<NavMobileLinksProps> = ({
   mobileIcon,
@@ -28,6 +29,7 @@ const NavMobileLinks: React.FC<NavMobileLinksProps> = ({
         aria-label="Expand menu"
         aria-controls="shtfi-mobile-nav"
         onClick={expandHandler}
+        className={style.burger_menu}
       >
         {mobileIcon ? (
           <BurgerMenuIcon
@@ -40,15 +42,22 @@ const NavMobileLinks: React.FC<NavMobileLinksProps> = ({
           <BurgerMenuIcon />
         )}
       </button>
-      <section data-nav="mobile" aria-expanded={open} {...rest}>
-        <ul>
-          {linkList.map((link, i) => (
-            <NavLink
-              key={`${link.href}-${link.label.replace(/\ /g, "")}-${i}`}
-              {...link}
-            />
-          ))}
-        </ul>
+      <section
+        className={style.mobile_section}
+        data-nav="mobile"
+        aria-hidden={!open}
+        {...rest}
+      >
+        <span className={style.underlay} onClick={expandHandler}></span>
+        <div className={style.mobile_drawer}>
+          <ul>
+            {linkList.map((link, i) => (
+              <li key={`${link.href}-${link.label.replace(/\ /g, "")}-${i}`}>
+                <NavLink {...link} />
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </>
   );

@@ -1,0 +1,26 @@
+.header__wrapper {
+  display: flex;
+  background-color: var(--light-blue);
+  padding: 4rem calc(var(--large-space) * 1.25) var(--large-space)
+    calc(var(--large-space) * 1.25);
+  border-radius: 0 0 calc(var(--radius-large) * 3) calc(var(--radius-large) * 3);
+  justify-content: center;
+  align-items: center;
+  margin-bottom: calc(var(--large-space) * 4);
+
+  .header__logo {
+    margin-right: 1ch;
+  }
+
+  .header__content {
+    h1 {
+      font-size: var(--head-font);
+      margin: 0 0 var(--small-space);
+    }
+
+    p {
+      font-size: var(--meta-font);
+      margin: 0;
+    }
+  }
+}
