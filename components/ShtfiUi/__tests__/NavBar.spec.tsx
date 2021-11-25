@@ -202,10 +202,10 @@ describe("<NavBar />", () => {
     expect(linkSection).toBeInTheDocument();
     expect(button).toBeInTheDocument();
     // Should be closed first
-    expect(linkSection?.getAttribute("aria-expanded")).toBe("false");
+    expect(linkSection?.getAttribute("aria-hidden")).toBe("true");
     // Click the button
     button.click();
     // Should be expanded
-    expect(linkSection?.getAttribute("aria-expanded")).toBe("true");
+    expect(linkSection?.getAttribute("aria-hidden")).toBe("false");
   });
 });
