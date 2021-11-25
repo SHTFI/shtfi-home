@@ -1,6 +1,6 @@
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
-import { NavBar } from "components";
+import { NavBar, Footer, FooterTile } from "components";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
@@ -65,9 +65,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           },
         ]}
         logo="/assets/icons/shtfi.svg"
-        brandWording="SHTFI"
       />
       <Component {...pageProps} />
+      <Footer>
+        <FooterTile />
+      </Footer>
     </>
   );
 };
