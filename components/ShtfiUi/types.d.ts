@@ -66,3 +66,8 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   wrapperProps?: React.HTMLAttributes<HTMLDivElement>;
   underlayProps?: React.HTMLAttributes<HTMLSpanElement>;
 }
+
+export interface ShapesProps extends React.HTMLAttributes<HTMLDivElement> {
+  shape?: string;
+  background?: boolean;
+}
