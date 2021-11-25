@@ -7,74 +7,42 @@ exports[`renders homepage unchanged 1`] = `
   <main
     className="main"
   >
-    <h1
-      className="title"
+    <header
+      className="header__wrapper"
     >
-      Welcome to 
-      <a
-        href="https://nextjs.org"
+      <picture
+        className="header__logo"
       >
-        Next.js!
-      </a>
-    </h1>
-    <p
-      className="description"
-    >
-      Get started by editing
-       
-      <code
-        className="code"
+        <img
+          alt="SHTFI logo"
+          height={75}
+          src="/assets/icons/shtfi-bg.svg"
+          width={75}
+        />
+      </picture>
+      <div
+        className="header__content"
       >
-        pages/index.js
-      </code>
-    </p>
+        <h1>
+          SHTFI
+        </h1>
+        <p>
+          Stop Helping The Finance Industry
+        </p>
+      </div>
+    </header>
     <div
-      className="grid"
+      className="wrapper"
     >
-      <a
-        className="card"
-        href="https://nextjs.org/docs"
+      <div
+        className="squares"
+        data-shape="squares"
       >
-        <h2>
-          Documentation →
-        </h2>
-        <p>
-          Find in-depth information about Next.js features and API.
-        </p>
-      </a>
-      <a
-        className="card"
-        href="https://nextjs.org/learn"
-      >
-        <h2>
-          Learn →
-        </h2>
-        <p>
-          Learn about Next.js in an interactive course with quizzes!
-        </p>
-      </a>
-      <a
-        className="card"
-        href="https://github.com/vercel/next.js/tree/master/examples"
-      >
-        <h2>
-          Examples →
-        </h2>
-        <p>
-          Discover and deploy boilerplate example Next.js projects.
-        </p>
-      </a>
-      <a
-        className="card"
-        href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-      >
-        <h2>
-          Deploy →
-        </h2>
-        <p>
-          Instantly deploy your Next.js site to a public URL with Vercel.
-        </p>
-      </a>
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
     </div>
   </main>
   <footer
