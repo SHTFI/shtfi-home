@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components";
+
+export default createGlobalStyle`
 @font-face {
   font-family: poppins;
   src: url("/assets/fonts/Poppins-Regular.ttf");
@@ -27,4 +30,4 @@
   font-style: italic;
   font-weight: 940000;
   font-display: swap;
-}
+}`;
