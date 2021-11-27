@@ -4,3 +4,13 @@ export interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   logo?: string;
   logoAlt?: string;
 }
+
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  padding?: string;
+  margin?: string;
+  maxWidth?: string;
+  maxHeight?: string;
+  minHeight?: string;
+  minWidth?: string;
+  background?: string;
+}
