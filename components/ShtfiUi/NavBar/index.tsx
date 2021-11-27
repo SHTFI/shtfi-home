@@ -3,7 +3,7 @@ import { NavBarProps } from "../types";
 import NavBranding from "./NavBranding";
 import NavDesktopLinks from "./NavDesktopLinks";
 import NavMobileLinks from "./NavMobileLinks";
-import style from "./NavBar.module.scss";
+import styled from "styled-components";
 const NavBar: React.FC<NavBarProps> = ({
   mobileIcon,
   mobileIconAlt,
@@ -27,8 +27,8 @@ const NavBar: React.FC<NavBarProps> = ({
     }, [window.innerHeight]);
   }
   return (
-    <div className={style.wrapper} {...rest} data-mob={isMobile}>
-      <nav className={style.nav} id="shtfi-mobile-nav-bar">
+    <StyledWrapper {...rest} data-mob={isMobile}>
+      <StyledNav id="shtfi-mobile-nav-bar">
         {!!logo || !!brandWording ? (
           <NavBranding
             logo={logo}
@@ -50,9 +50,21 @@ const NavBar: React.FC<NavBarProps> = ({
         ) : (
           <NavDesktopLinks linkList={linkList} />
         )}
-      </nav>
-    </div>
+      </StyledNav>
+    </StyledWrapper>
   );
 };
 
+const StyledWrapper = styled.div`
+  width: 100%;
+  background-color: var(--light-blue);
+  z-index: 999;
+  position: fixed;
+  overflow: hidden;
+`;
+const StyledNav = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  padding: var(--large-space);
+`;
 export default NavBar;
