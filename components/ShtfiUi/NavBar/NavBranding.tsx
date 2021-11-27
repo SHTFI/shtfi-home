@@ -1,5 +1,5 @@
+import styled from "styled-components";
 import { NavBrandingProps } from "../types";
-import style from "./NavBar.module.scss";
 
 const NavBranding: React.FC<NavBrandingProps> = ({
   logo,
@@ -16,7 +16,7 @@ const NavBranding: React.FC<NavBrandingProps> = ({
   }
   // Return our branding element
   return (
-    <a href="/" title="Go back home" className={style.branding}>
+    <StyledBranding href="/" title="Go back home">
       {logo ? (
         <img
           src={logo}
@@ -26,8 +26,22 @@ const NavBranding: React.FC<NavBrandingProps> = ({
         />
       ) : null}
       {wording ? <span>{wording}</span> : null}
-    </a>
+    </StyledBranding>
   );
 };
+
+const StyledBranding = styled.a`
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-right: 1ch;
+  }
+
+  span {
+    font-weight: bold;
+    margin-top: 2px;
+  }
+`;
 
 export default NavBranding;

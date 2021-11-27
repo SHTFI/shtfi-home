@@ -2,16 +2,16 @@
 
 exports[`renders homepage unchanged 1`] = `
 <div
-  className="container"
+  className="pages__StyledWrapper-sc-tddur0-0 tYBfw"
 >
   <main
-    className="main"
+    className="pages__StyledMain-sc-tddur0-1"
   >
     <header
-      className="header__wrapper"
+      className="Header__StyledHeader-sc-1w0zh9p-0 ffLIaS"
     >
       <picture
-        className="header__logo"
+        className="Header__StyledHeaderLogo-sc-1w0zh9p-1 iSwAar"
       >
         <img
           alt="SHTFI logo"
@@ -21,7 +21,7 @@ exports[`renders homepage unchanged 1`] = `
         />
       </picture>
       <div
-        className="header__content"
+        className="Header__StyledHeaderContent-sc-1w0zh9p-2 dqiudk"
       >
         <h1>
           SHTFI
@@ -31,132 +31,83 @@ exports[`renders homepage unchanged 1`] = `
         </p>
       </div>
     </header>
-    <div
-      className="wrapper"
+    <section
+      className="pages__StyledIntroSection-sc-tddur0-2 kLaTRX"
     >
       <div
-        className="squares"
-        data-shape="squares"
-      >
-        <span />
-        <span />
-        <span />
-        <span />
-      </div>
-    </div>
-  </main>
-  <footer
-    className="footer"
-  >
-    <a
-      href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Powered by
-       
-      <span
-        className="logo"
+        className="Shapes__StyledWrapper-sc-4pweu7-0 dVnVci"
+        data-bg={true}
+        data-size="small"
       >
         <div
+          className="Shapes__StyledShape-sc-4pweu7-1 LABoh"
+          data-shape="squares"
+        >
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+      </div>
+      <h2>
+        We're Shit and We Know We Are
+      </h2>
+      <p>
+        Nulla aliqua et Lorem ullamco cillum sunt proident. Occaecat labore ipsum nisi fugiat sint ipsum dolore nostrud nostrud eiusmod aliquip. Duis magna ea dolor sunt irure adipisicing ea duis. Sunt elit est fugiat proident occaecat. Et laboris labore ea anim fugiat exercitation irure dolore veniam.
+      </p>
+    </section>
+    <section
+      className="pages__StyledCardSection-sc-tddur0-3 gtJANQ"
+    >
+      <div
+        className="Card__StyledCard-sc-1tba087-0 dYpAGa"
+      >
+        <div
+          className="Shapes__StyledWrapper-sc-4pweu7-0 dVnVci"
+          data-bg={false}
+          data-size="tiny"
           style={
             Object {
-              "boxSizing": "border-box",
-              "display": "inline-block",
-              "margin": 0,
-              "maxWidth": "100%",
-              "overflow": "hidden",
-              "position": "relative",
+              "margin": "calc(var(--large-space) * 2) auto",
             }
           }
         >
           <div
+            className="Shapes__StyledShape-sc-4pweu7-1 LABoh"
+            data-shape="squares"
+          >
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
+        <div
+          className="pages__StyledCardContent-sc-tddur0-4 fuKkqv"
+        >
+          <h3
             style={
               Object {
-                "boxSizing": "border-box",
-                "display": "block",
-                "maxWidth": "100%",
+                "marginTop": 0,
               }
             }
           >
-            <img
-              alt=""
-              aria-hidden={true}
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
-              style={
-                Object {
-                  "border": "none",
-                  "display": "block",
-                  "margin": 0,
-                  "maxWidth": "100%",
-                  "padding": 0,
-                }
-              }
-            />
-          </div>
-          <img
-            alt="Vercel Logo"
-            data-nimg="intrinsic"
-            decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style={
-              Object {
-                "border": "none",
-                "bottom": 0,
-                "boxSizing": "border-box",
-                "display": "block",
-                "height": 0,
-                "left": 0,
-                "margin": "auto",
-                "maxHeight": "100%",
-                "maxWidth": "100%",
-                "minHeight": "100%",
-                "minWidth": "100%",
-                "objectFit": undefined,
-                "objectPosition": undefined,
-                "padding": 0,
-                "position": "absolute",
-                "right": 0,
-                "top": 0,
-                "width": 0,
-              }
-            }
-          />
-          <noscript>
-            <img
-              alt="Vercel Logo"
-              data-nimg="intrinsic"
-              decoding="async"
-              loading="lazy"
-              src="/_next/image?url=%2Fvercel.svg&w=256&q=75"
-              srcSet="/_next/image?url=%2Fvercel.svg&w=96&q=75 1x, /_next/image?url=%2Fvercel.svg&w=256&q=75 2x"
-              style={
-                Object {
-                  "border": "none",
-                  "bottom": 0,
-                  "boxSizing": "border-box",
-                  "display": "block",
-                  "height": 0,
-                  "left": 0,
-                  "margin": "auto",
-                  "maxHeight": "100%",
-                  "maxWidth": "100%",
-                  "minHeight": "100%",
-                  "minWidth": "100%",
-                  "objectFit": undefined,
-                  "objectPosition": undefined,
-                  "padding": 0,
-                  "position": "absolute",
-                  "right": 0,
-                  "top": 0,
-                  "width": 0,
-                }
-              }
-            />
-          </noscript>
+            Something
+          </h3>
+          <p>
+            Minim do sit exercitation ut est irure amet aute sint id ea sunt sint. Enim et elit exercitation officia id aliquip magna.
+          </p>
+          <button
+            className="Button__StyledButton-sc-9q0s2c-0 dwSieL"
+            color="blue"
+            onClick={[Function]}
+            size="large"
+          >
+            CTA
+          </button>
         </div>
-      </span>
-    </a>
-  </footer>
+      </div>
+    </section>
+  </main>
 </div>
 `;

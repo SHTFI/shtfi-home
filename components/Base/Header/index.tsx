@@ -1,5 +1,5 @@
+import styled from "styled-components";
 import { HeaderProps } from "../types";
-import style from "./Header.module.scss";
 
 const Header: React.FC<HeaderProps> = ({
   title,
@@ -10,18 +10,45 @@ const Header: React.FC<HeaderProps> = ({
   ...rest
 }) => {
   return (
-    <header className={style.header__wrapper} {...rest}>
+    <StyledHeader {...rest}>
       {logo && (
-        <picture className={style.header__logo}>
+        <StyledHeaderLogo>
           <img src={logo} alt={logoAlt} width={75} height={75} />
-        </picture>
+        </StyledHeaderLogo>
       )}
-      <div className={style.header__content}>
+      <StyledHeaderContent>
         <h1>{title}</h1>
         {subTitle && <p>{subTitle}</p>}
-      </div>
-    </header>
+      </StyledHeaderContent>
+    </StyledHeader>
   );
 };
+
+const StyledHeader = styled.header`
+  display: flex;
+  background-color: var(--light-blue);
+  padding: 4rem calc(var(--large-space) * 1.25) var(--large-space)
+    calc(var(--large-space) * 1.25);
+  border-radius: 0 0 calc(var(--radius-large) * 3) calc(var(--radius-large) * 3);
+  justify-content: center;
+  align-items: center;
+  margin-bottom: calc(var(--large-space) * 4);
+`;
+
+const StyledHeaderLogo = styled.picture`
+  margin-right: 1ch;
+`;
+
+const StyledHeaderContent = styled.div`
+  h1 {
+    font-size: var(--head-font);
+    margin: 0 0 var(--small-space);
+  }
+
+  p {
+    font-size: var(--meta-font);
+    margin: 0;
+  }
+`;
 
 export default Header;

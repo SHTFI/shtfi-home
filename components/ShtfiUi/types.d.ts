@@ -1,7 +1,30 @@
 import { LinkProps } from "next/link";
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+type Colors =
+  | "light-blue"
+  | "blue"
+  | "dark-blue"
+  | "brown"
+  | "dark-brown"
+  | "light"
+  | "dark";
+
+type Sizes = "tiny" | "small" | "medium" | "large" | "full-width";
+
+export interface ElementStyleProps {
+  color?: Colors;
+  txtColor?: Colors;
+  hoverColor?: Colors;
+  hoverTxtColor?: Colors;
+  size?: Sizes;
+  margin?: Sizes;
+}
+
+export interface ButtonProps
+  extends React.HTMLAttributes<HTMLButtonElement>,
+    ElementStyleProps {
   clickHandler: React.MouseEventHandler<HTMLButtonElement>;
+  label?: string;
 }
 
 export interface NavBarProps extends React.HTMLAttributesHTML<HTMLDivElement> {
@@ -61,7 +84,7 @@ export interface FooterTileProps extends React.HTMLAttributes<HTMLDivElement> {}
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   open: boolean;
   toggleCallback?: React.MouseEventHandler<HTMLButtonElement>;
-  buttonProps?: ButtonProps;
+  buttonProps: ButtonProps;
   buttonLabel?: string;
   wrapperProps?: React.HTMLAttributes<HTMLDivElement>;
   underlayProps?: React.HTMLAttributes<HTMLSpanElement>;
@@ -70,4 +93,5 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
 export interface ShapesProps extends React.HTMLAttributes<HTMLDivElement> {
   shape?: string;
   background?: boolean;
+  size?: "tiny" | "small" | "medium" | "large";
 }

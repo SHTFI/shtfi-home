@@ -1,5 +1,6 @@
-@import "./fonts.scss";
+import { createGlobalStyle } from "styled-components";
 
+export default createGlobalStyle`
 :root {
   --light-blue: #c8faff;
   --blue: #1ba7c0;
@@ -8,9 +9,11 @@
   --dark-brown: #864313;
   --light: #f6fdfe;
   --dark: #0d0d0d;
+  --tiny-space: 0.15rem;
   --small-space: 0.25rem;
   --med-space: 0.5rem;
   --large-space: 1rem;
+  --full-width-space: 100%;
   --meta-font: 0.8rem;
   --reg-font: 1rem;
   --head-font: 1.4rem;
@@ -18,6 +21,7 @@
   --radius-small: 0.3rem;
   --radius-med: 0.6rem;
   --radius-large: 1rem;
+  --vh: 1vh;
 }
 
 html,
@@ -46,3 +50,8 @@ button {
 * {
   box-sizing: inherit;
 }
+
+section {
+  margin: var(--large-space) 0;
+}
+`;
