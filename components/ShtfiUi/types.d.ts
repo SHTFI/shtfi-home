@@ -21,9 +21,8 @@ export interface ElementStyleProps {
 }
 
 export interface ButtonProps
-  extends React.HTMLAttributes<HTMLButtonElement>,
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     ElementStyleProps {
-  clickHandler: React.MouseEventHandler<HTMLButtonElement>;
   label?: string;
 }
 
@@ -77,6 +76,7 @@ export interface NavMobileLinksProps
 export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   text: string;
+  align?: "center" | "left" | "right";
 }
 
 export interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -94,4 +94,10 @@ export interface ShapesProps extends React.HTMLAttributes<HTMLDivElement> {
   shape?: string;
   background?: boolean;
   size?: "tiny" | "small" | "medium" | "large";
+}
+
+export interface TextIconProps extends React.HTMLAttributes<HTMLDivElement> {
+  heading: string;
+  copy: string;
+  icon: string;
 }

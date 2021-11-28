@@ -1,6 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Button, Card, Header, Heading, Shapes } from "components";
+import {
+  Button,
+  Card,
+  Header,
+  Heading,
+  Slider,
+  Shapes,
+  TextIcon,
+} from "components";
 import styled from "styled-components";
 
 const Home: NextPage = () => {
@@ -47,10 +55,31 @@ const Home: NextPage = () => {
                 Minim do sit exercitation ut est irure amet aute sint id ea sunt
                 sint. Enim et elit exercitation officia id aliquip magna.
               </p>
-              <Button clickHandler={() => console.log("click")}>CTA</Button>
+              <Button onClick={() => console.log("click")}>CTA</Button>
             </StyledCardContent>
           </Card>
         </StyledCardSection>
+        {/* Slider section */}
+        <StyledSliderSection>
+          <Slider>
+            <div>
+              <Heading level={2} text="SHTFI all day" />
+              <TextIcon
+                heading="We're the SHTFI"
+                copy="Shitty shit shtfi defi decentralised, crypto, blockchain, dao something something elon musk."
+                icon="people-carry"
+              />
+            </div>
+            <div>
+              <Heading level={2} text="SHTFI all day" />
+              <TextIcon
+                heading="We're the SHTFI 2"
+                copy="Shitty shit shtfi defi decentralised, crypto, blockchain, dao something something elon musk."
+                icon="people-carry"
+              />
+            </div>
+          </Slider>
+        </StyledSliderSection>
       </StyledMain>
     </StyledWrapper>
   );
@@ -91,8 +120,8 @@ const StyledCardContent = styled.div`
     text-align: center;
     font-size: var(--head-font);
   }
-  > button {
-    margin: calc(var(--large-space) * 2) 0;
-  }
+`;
+const StyledSliderSection = styled.section`
+  padding: calc(var(--large-space) * 6) 0;
 `;
 export default Home;
