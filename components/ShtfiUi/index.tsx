@@ -5,3 +5,5 @@ export { default as Footer } from "./Footer";
 export { default as FooterTile } from "./FooterTile";
 export { default as Modal } from "./Modal";
 export { default as Shapes } from "./Shapes";
+export { default as TextIcon } from "./TextIcon";
+export { default as Slider } from "./Slider";
