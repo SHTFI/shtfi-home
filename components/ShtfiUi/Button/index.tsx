@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { ButtonProps, ElementStyleProps, Colors, Sizes } from "../types";
 
 const Button: React.FC<ButtonProps> = ({
@@ -8,8 +9,8 @@ const Button: React.FC<ButtonProps> = ({
   txtColor = "light",
   hoverTxtColor = "light",
   margin = "medium",
-  clickHandler,
   children,
+  ref,
   ...rest
 }) => {
   return (
@@ -19,7 +20,6 @@ const Button: React.FC<ButtonProps> = ({
       hoverColor={hoverColor}
       size={size}
       color={color as Colors}
-      onClick={clickHandler}
       {...rest}
     >
       {children}
@@ -43,6 +43,10 @@ const StyledButton = styled.button<ElementStyleProps>`
       background-color: var(--${hoverColor});
       color: var(--${hoverTxtColor});
       box-shadow: var(--shadow);
+    }
+
+    &[disabled] {
+      opacity: 0.5;
     }
     `;
   }}
