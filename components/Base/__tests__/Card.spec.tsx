@@ -18,14 +18,4 @@ describe("<Card />", () => {
     expect(card).toBeInTheDocument();
     expect(child).toBeInTheDocument();
   });
-
-  it("has class which includes wrapper", () => {
-    const { container } = render(
-      <Card data-testid="card">
-        <div data-testid="child"></div>
-      </Card>
-    );
-    const card = container.querySelector('[class*="wrapper"');
-    expect(card).toBeInTheDocument();
-  });
 });
