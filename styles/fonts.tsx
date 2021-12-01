@@ -28,6 +28,14 @@ export default createGlobalStyle`
   font-family: poppins;
   src: url("/assets/fonts/Poppins-Italic.ttf");
   font-style: italic;
-  font-weight: 940000;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: poppins;
+  src: url("/assets/fonts/Poppins-Light.ttf");
+  font-style: light;
+  font-weight: 100;
   font-display: swap;
 }`;
