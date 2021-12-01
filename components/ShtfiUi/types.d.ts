@@ -1,5 +1,5 @@
 import { LinkProps } from "next/link";
-
+// Re add colors here in case ui is used out of the scope of this project
 type Colors =
   | "light-blue"
   | "blue"
@@ -9,7 +9,8 @@ type Colors =
   | "light"
   | "dark";
 
-type Sizes = "tiny" | "small" | "medium" | "large" | "full-width";
+// Re add sizes here in case ui is used out of the scope of this project
+type Sizes = "tiny" | "small" | "med" | "large" | "full-width";
 
 export interface ElementStyleProps {
   color?: Colors;
@@ -82,9 +83,9 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
 export interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {}
 export interface FooterTileProps extends React.HTMLAttributes<HTMLDivElement> {}
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
-  open: boolean;
+  open?: boolean;
   toggleCallback?: React.MouseEventHandler<HTMLButtonElement>;
-  buttonProps: ButtonProps;
+  buttonProps?: ButtonProps;
   buttonLabel?: string;
   wrapperProps?: React.HTMLAttributes<HTMLDivElement>;
   underlayProps?: React.HTMLAttributes<HTMLSpanElement>;
