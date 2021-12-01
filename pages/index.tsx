@@ -8,6 +8,8 @@ import {
   Slider,
   Shapes,
   TextIcon,
+  Tokenomics,
+  Modal,
 } from "components";
 import styled from "styled-components";
 
@@ -32,15 +34,22 @@ const Home: NextPage = () => {
         {/* Intro section */}
         <StyledIntroSection>
           <Shapes background={true} />
-          <Heading text="We're Shit and We Know We Are" level={2} />
+          <Heading text="Yield Farming Like Never Before" level={2} />
           <p>
-            Nulla aliqua et Lorem ullamco cillum sunt proident. Occaecat labore
-            ipsum nisi fugiat sint ipsum dolore nostrud nostrud eiusmod aliquip.
-            Duis magna ea dolor sunt irure adipisicing ea duis. Sunt elit est
-            fugiat proident occaecat. Et laboris labore ea anim fugiat
-            exercitation irure dolore veniam.
+            SHTFI is a brand new protocol with a unique distribution mechanism
+            which will see 0 pre-mine and 0 dev fund.
           </p>
         </StyledIntroSection>
+        {/* Tokenomics Section */}
+        <Tokenomics
+          supply={Number(222222).toLocaleString()}
+          marketing={0}
+          devFund={0}
+          farm={100}
+          preMine={0}
+          showPercent={["farm"]}
+          showLarge={["farm", "supply"]}
+        />
         {/* Card section */}
         <StyledCardSection>
           <Card>
@@ -50,32 +59,60 @@ const Home: NextPage = () => {
               style={{ margin: "calc(var(--large-space) * 2) auto" }}
             />
             <StyledCardContent>
-              <Heading level={3} text="Something" style={{ marginTop: 0 }} />
+              <Heading
+                level={3}
+                text="NFTs? Why not!?"
+                style={{ marginTop: 0 }}
+              />
               <p>
-                Minim do sit exercitation ut est irure amet aute sint id ea sunt
-                sint. Enim et elit exercitation officia id aliquip magna.
+                The SHTFI protocol will not be without its own set of useless
+                NFTs which, in reality, mean nothing whatsoever. That doesn't
+                mean you can't still tell yourself you own a unique picture of
+                poop which no-one else has!
               </p>
-              <Button onClick={() => console.log("click")}>CTA</Button>
+              <Modal buttonLabel="But, Why?">
+                <div>
+                  <Heading text="Because we can!" level={4} />
+                  <p>
+                    NFTs have become all the rage for reasons that are beyond
+                    the point of fungibility and the SHTFI protocol is all about
+                    being pointless. So let's do it! Let's make some NFTs!
+                  </p>
+                </div>
+              </Modal>
             </StyledCardContent>
           </Card>
         </StyledCardSection>
         {/* Slider section */}
         <StyledSliderSection>
+          <Heading level={2} text="What is SHTFI?" />
           <Slider>
             <div>
-              <Heading level={2} text="SHTFI all day" />
               <TextIcon
-                heading="We're the SHTFI"
-                copy="Shitty shit shtfi defi decentralised, crypto, blockchain, dao something something elon musk."
-                icon="people-carry"
+                heading="Crypto Farm"
+                copy="The most open and, probably, shit crypto farm of all time. Our smart contract was NOT forked from another major project and, as a result, is probably full of vulnerabilities. "
+                icon="farm"
               />
             </div>
             <div>
-              <Heading level={2} text="SHTFI all day" />
               <TextIcon
-                heading="We're the SHTFI 2"
-                copy="Shitty shit shtfi defi decentralised, crypto, blockchain, dao something something elon musk."
-                icon="people-carry"
+                heading="Open Sauce"
+                copy="SHTFI is very much like that bottle of ketchup with flies all over it at your local chippy... Open Sauce. In fact, there will be a guide created to teach exactly how to release your own shitty project!"
+                icon="sauce"
+              />
+            </div>
+            <div>
+              <TextIcon
+                heading="A Fun Side Project"
+                copy="SHTFI was built as a side project by Making Stuffs (Paul Singh) and was not made with the intention of becoming a moon shit, I mean shot."
+                icon="game"
+              />
+            </div>
+            <div>
+              <TextIcon
+                heading="Decentralised"
+                copy="Yes, SHTFI was created by a one man band, however, it doesn't have to stay this way. Join in, contribute to the GitHub, add to the protocol, let's do this shit together!"
+                icon="chain"
               />
             </div>
           </Slider>
