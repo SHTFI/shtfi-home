@@ -1,7 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Button } from "components";
-import { ButtonProps } from "../types";
 
 const Slider: React.FC = ({ children, ...rest }) => {
   const [activeSlide, setActiveSlide] = useState<number>(0);
@@ -17,23 +16,14 @@ const Slider: React.FC = ({ children, ...rest }) => {
   const slides = React.Children.toArray(children);
   // Define our change handler
   const handleChange = (forwards: boolean = true): void => {
-    // Next slide
-    if (!!forwards) {
-      // Next index
-      const nextSlide = activeSlide + 1;
-      // Set it
-      setActiveSlide(nextSlide);
-      // If the new slide is last disable the button
-    } else {
-      // Next index
-      const nextSlide = activeSlide - 1;
-      // Set it
-      setActiveSlide(nextSlide);
-    }
+    const nextSlide = !!forwards ? activeSlide + 1 : activeSlide - 1;
+    setActiveSlide(nextSlide);
   };
   return (
     <StyledSlider {...rest}>
-      {slides[activeSlide]}
+      <StyledSlides>
+        <StyledSlide>{slides[activeSlide]}</StyledSlide>
+      </StyledSlides>
       <StyledNav>
         <Button
           onClick={() => handleChange(false)}
@@ -52,11 +42,19 @@ const Slider: React.FC = ({ children, ...rest }) => {
   );
 };
 
-const StyledSlider = styled.div``;
+const StyledSlider = styled.div`
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+`;
+const StyledSlides = styled.div`
+  display: flex;
+`;
+const StyledSlide = styled.div``;
 const StyledNav = styled.nav`
   display: flex;
   justify-content: center;
-  margin-top: var(--large-space);
+  margin: auto 0;
   > button {
     min-width: 7ch;
   }
