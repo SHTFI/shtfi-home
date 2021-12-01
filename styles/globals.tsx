@@ -29,6 +29,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: poppins, sans-serif;
+  overflow-x: hidden;
 }
 
 html {

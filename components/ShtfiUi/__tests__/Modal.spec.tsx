@@ -18,7 +18,6 @@ describe("<Modal />", () => {
         data-testid="modal"
         buttonProps={{
           ["data-testid" as string]: "button",
-          clickHandler: jest.fn(),
         }}
       >
         <h1>Hey</h1>
@@ -37,7 +36,6 @@ describe("<Modal />", () => {
         data-testid="modal"
         buttonProps={{
           ["data-testid" as string]: "button",
-          clickHandler: jest.fn(),
         }}
       >
         <h1>Hey</h1>
@@ -133,5 +131,26 @@ describe("<Modal />", () => {
     const wrapper = element.closest('[data-type="wrapper"]');
     expect(wrapper).toBeInTheDocument();
     expect(wrapper?.getAttribute("aria-hidden")).toBe("true");
+  });
+  it("calls the toggle callback when modal is opened or closed", () => {
+    const cb = jest.fn();
+    const { getByTestId } = render(
+      <Modal
+        open={false}
+        data-testid="modal"
+        toggleCallback={cb}
+        buttonProps={{ ["data-testid" as string]: "button" }}
+      >
+        <h1>Hey</h1>
+      </Modal>
+    );
+    const element = getByTestId("modal");
+    expect(element).toBeInTheDocument();
+    const wrapper = element.closest('[data-type="wrapper"]');
+    expect(wrapper).toBeInTheDocument();
+    expect(wrapper?.getAttribute("aria-hidden")).toBe("true");
+    const open = getByTestId("button");
+    open.click();
+    expect(cb.mock.calls.length).toBe(1);
   });
 });

@@ -10,7 +10,6 @@ const Button: React.FC<ButtonProps> = ({
   hoverTxtColor = "light",
   margin = "medium",
   children,
-  ref,
   ...rest
 }) => {
   return (

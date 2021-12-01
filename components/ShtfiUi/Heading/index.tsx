@@ -15,15 +15,35 @@ const Heading: React.FC<HeadingProps> = ({
         </H1>
       );
     case 2:
-      return <H2 {...rest}>{text}</H2>;
+      return (
+        <H2 align={align} {...rest}>
+          {text}
+        </H2>
+      );
     case 3:
-      return <H3 {...rest}>{text}</H3>;
+      return (
+        <H3 align={align} {...rest}>
+          {text}
+        </H3>
+      );
     case 4:
-      return <H4 {...rest}>{text}</H4>;
+      return (
+        <H4 align={align} {...rest}>
+          {text}
+        </H4>
+      );
     case 5:
-      return <H5 {...rest}>{text}</H5>;
+      return (
+        <H5 align={align} {...rest}>
+          {text}
+        </H5>
+      );
     case 6:
-      return <H6 {...rest}>{text}</H6>;
+      return (
+        <H6 align={align} {...rest}>
+          {text}
+        </H6>
+      );
     default:
       return null;
   }
