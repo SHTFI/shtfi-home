@@ -21,10 +21,13 @@ describe("<NavBar />", () => {
 
   it("has a burger menu button on screen less than 701px", () => {
     global.innerWidth = 700;
-    const { container } = render(<NavBar data-testid="nav" linkList={LINKS} />);
-    const nav = container.querySelector('[data-testid="nav"]');
+    const { baseElement } = render(
+      <NavBar data-testid="nav" linkList={LINKS} />
+    );
+    const nav = screen.getByTestId("nav");
     expect(nav).toBeInTheDocument();
-    const burgerButton = container.querySelector("#shtfi-mobile-expand");
+    const burgerButton = baseElement.querySelector("#shtfi-mobile-expand");
+
     expect(burgerButton).toBeInTheDocument();
     const icon = burgerButton?.querySelector("svg");
     expect(icon).toBeInTheDocument();
@@ -33,7 +36,7 @@ describe("<NavBar />", () => {
 
   it("has a custom burger menu icon when provided to screen less than 501px", () => {
     global.innerWidth = 500;
-    const { container } = render(
+    const { baseElement } = render(
       <NavBar
         data-testid="nav"
         linkList={LINKS}
@@ -43,9 +46,9 @@ describe("<NavBar />", () => {
         mobileIconHeight={10}
       />
     );
-    const nav = container.querySelector('[data-testid="nav"]');
+    const nav = screen.getByTestId("nav");
     expect(nav).toBeInTheDocument();
-    const burgerButton = container.querySelector("#shtfi-mobile-expand");
+    const burgerButton = baseElement.querySelector("#shtfi-mobile-expand");
     expect(burgerButton).toBeInTheDocument();
     const icon = burgerButton?.querySelector("img");
     expect(icon).toBeInTheDocument();
@@ -65,7 +68,7 @@ describe("<NavBar />", () => {
         logoHeight={10}
       />
     );
-    const nav = container.querySelector('[data-testid="nav"]');
+    const nav = screen.getByTestId("nav");
     expect(nav).toBeInTheDocument();
     const logo = nav?.querySelector(
       'img[src="/img/logo-test.jpg"]'
@@ -80,9 +83,9 @@ describe("<NavBar />", () => {
     const { getByText, getByTestId } = render(
       <NavBar data-testid="nav" brandWording="Words" linkList={LINKS} />
     );
-    const nav = getByTestId("nav");
+    const nav = screen.getByTestId("nav");
     expect(nav).toBeInTheDocument();
-    const wording = getByText(/words/i);
+    const wording = screen.getByText(/words/i);
     expect(wording).toBeInTheDocument();
   });
 
@@ -115,28 +118,28 @@ describe("<NavBar />", () => {
       />,
     ]);
     // Just words
-    let nav = getByTestId("nav-words");
+    let nav = screen.getByTestId("nav-words");
     expect(nav).toBeInTheDocument();
-    let wording = getByText(/^words$/i);
+    let wording = screen.getByText(/^words$/i);
     expect(wording).toBeInTheDocument();
     let wordParent = wording.closest("a") as HTMLAnchorElement;
     expect(wordParent).toBeInTheDocument();
     expect(wordParent.href).toBe("http://localhost/");
 
     // Just logo
-    nav = getByTestId("nav-logo");
+    nav = screen.getByTestId("nav-logo");
     expect(nav).toBeInTheDocument();
-    let logo = getByAltText(/^image$/i);
+    let logo = screen.getByAltText(/^image$/i);
     expect(logo).toBeInTheDocument();
     let logoParent = logo.closest("a") as HTMLAnchorElement;
     expect(logoParent).toBeInTheDocument();
     expect(logoParent.href).toBe("http://localhost/");
 
     // Logo and text
-    nav = getByTestId("nav-both");
+    nav = screen.getByTestId("nav-both");
     expect(nav).toBeInTheDocument();
-    logo = getByAltText(/^image-2$/i);
-    wording = getByText(/^words 2$/i);
+    logo = screen.getByAltText(/^image-2$/i);
+    wording = screen.getByText(/^words 2$/i);
     expect(logo).toBeInTheDocument();
     expect(wording).toBeInTheDocument();
     logoParent = logo.closest("a") as HTMLAnchorElement;
@@ -149,31 +152,35 @@ describe("<NavBar />", () => {
 
   it("shows desktop nav on screens more than 700px wide", () => {
     global.innerWidth = 701;
-    const { container } = render(<NavBar data-testid="nav" linkList={LINKS} />);
-    const nav = container.querySelector('[data-testid="nav"]');
+    const { baseElement } = render(
+      <NavBar data-testid="nav" linkList={LINKS} />
+    );
+    const nav = screen.getByTestId("nav");
     expect(nav).toBeInTheDocument();
-    const burgerButton = container.querySelector('[data-nav="mobile"]');
+    const burgerButton = baseElement.querySelector('[data-nav="mobile"]');
     expect(burgerButton).not.toBeInTheDocument();
     const icon = burgerButton?.querySelector("svg");
     expect(icon).not.toBeDefined();
     expect(nav?.getAttribute("data-mob")).toBe("false");
-    const desktopLinksWRapper = container.querySelector('[data-nav="desktop"');
+    const desktopLinksWRapper = baseElement.querySelector(
+      '[data-nav="desktop"'
+    );
     expect(desktopLinksWRapper).toBeInTheDocument();
   });
 
   it("executes expand callback when burger menu is clicked", () => {
     global.innerWidth = 500;
     const callback = jest.fn();
-    const { container } = render(
+    const { baseElement } = render(
       <NavBar
         data-testid="nav"
         linkList={LINKS}
         burgerMenuCallback={callback}
       />
     );
-    const nav = container.querySelector('[data-nav="mobile"]');
+    const nav = baseElement.querySelector('[data-nav="mobile"]');
     expect(nav).toBeInTheDocument();
-    const button = container.querySelector(
+    const button = baseElement.querySelector(
       "#shtfi-mobile-expand"
     ) as HTMLButtonElement;
     expect(button).toBeInTheDocument();
@@ -186,17 +193,17 @@ describe("<NavBar />", () => {
   it("reveals nav drawer when burger menu clicked", () => {
     global.innerWidth = 500;
     const callback = jest.fn();
-    const { container } = render(
+    const { baseElement } = render(
       <NavBar
         data-testid="nav"
         linkList={LINKS}
         burgerMenuCallback={callback}
       />
     );
-    const nav = container.querySelector('[data-nav="mobile"]');
+    const nav = baseElement.querySelector('[data-nav="mobile"]');
     expect(nav).toBeInTheDocument();
-    const linkSection = container.querySelector('[data-nav="mobile"');
-    const button = container.querySelector(
+    const linkSection = baseElement.querySelector('[data-nav="mobile"');
+    const button = baseElement.querySelector(
       "#shtfi-mobile-expand"
     ) as HTMLButtonElement;
     expect(linkSection).toBeInTheDocument();

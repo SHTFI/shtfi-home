@@ -3,23 +3,23 @@ import { Footer } from "components";
 
 describe("<Footer />", () => {
   it("renders", () => {
-    const { getByTestId } = render(<Footer data-testid="footer" />);
-    const footer = getByTestId("footer");
+    render(<Footer data-testid="footer" />);
+    const footer = screen.getByTestId("footer");
     expect(footer).toBeInTheDocument();
   });
   it("renders children", () => {
-    const { getByTestId, getByText, container } = render(
+    const { baseElement } = render(
       <Footer data-testid="footer">
         <div id="child">
           <p>Hey</p>
         </div>
       </Footer>
     );
-    const footer = getByTestId("footer");
+    const footer = screen.getByTestId("footer");
     expect(footer).toBeInTheDocument();
-    const div = container.querySelector("#child");
+    const div = baseElement.querySelector("#child");
     expect(div).toBeInTheDocument();
-    const p = getByText(/^hey$/i);
+    const p = screen.getByText(/^hey$/i);
     expect(p).toBeInTheDocument();
   });
 });

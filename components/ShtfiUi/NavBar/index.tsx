@@ -23,16 +23,15 @@ const NavBar: React.FC<NavBarProps> = ({
   const [isMobile, setIsMobile] = useState<boolean>(true);
   // Set dataset of the nav to decide which nav to show
 
-  if (typeof window !== "undefined") {
+  useEffect(() => {
     const handleResize = (): void => {
       setIsMobile(window && window.innerWidth <= 700 ? true : false);
     };
-
-    useEffect(() => {
+    if (typeof window !== "undefined") {
       setIsMobile(window && window.innerWidth <= 700 ? true : false);
       window.addEventListener("resize", handleResize);
-    }, []);
-  }
+    }
+  }, []);
 
   return (
     <StyledWrapper {...rest} data-mob={isMobile}>

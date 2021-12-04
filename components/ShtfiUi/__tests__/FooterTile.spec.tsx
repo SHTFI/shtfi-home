@@ -3,23 +3,23 @@ import { FooterTile } from "components";
 
 describe("<FooterTile />", () => {
   it("renders", () => {
-    const { getByTestId } = render(
+    render(
       <FooterTile data-testid="tile">
         <p>Hey</p>
       </FooterTile>
     );
-    const element = getByTestId("tile");
+    const element = screen.getByTestId("tile");
     expect(element).toBeInTheDocument();
   });
   it("renders children", () => {
-    const { getByTestId, getByText } = render(
+    render(
       <FooterTile data-testid="tile">
         <p>Hey</p>
       </FooterTile>
     );
-    const element = getByTestId("tile");
+    const element = screen.getByTestId("tile");
     expect(element).toBeInTheDocument();
-    const child = getByText(/^hey$/i);
+    const child = screen.getByText(/^hey$/i);
     expect(child).toBeInTheDocument();
   });
 });

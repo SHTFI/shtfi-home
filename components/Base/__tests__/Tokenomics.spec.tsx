@@ -1,8 +1,8 @@
-import { render } from "utils/testing/testHelpers";
+import { render, screen } from "utils/testing/testHelpers";
 import { Tokenomics } from "components";
 describe("<Tokenomics />", () => {
   it("renders", () => {
-    const { getByTestId } = render(
+    render(
       <Tokenomics
         marketing={0}
         supply={0}
@@ -12,12 +12,12 @@ describe("<Tokenomics />", () => {
         data-testid="tokenomics"
       />
     );
-    const element = getByTestId("tokenomics");
+    const element = screen.getByTestId("tokenomics");
     expect(element).toBeInTheDocument();
   });
 
   it("renders children", () => {
-    const { getByTestId } = render(
+    render(
       <Tokenomics
         marketing={20}
         supply={0}
@@ -29,14 +29,14 @@ describe("<Tokenomics />", () => {
         <div data-testid="child"></div>
       </Tokenomics>
     );
-    const element = getByTestId("tokenomics");
+    const element = screen.getByTestId("tokenomics");
     expect(element).toBeInTheDocument();
-    const child = getByTestId("child");
+    const child = screen.getByTestId("child");
     expect(child).toBeInTheDocument();
   });
 
   it("renders correct titles", () => {
-    const { getByText } = render(
+    render(
       <Tokenomics
         marketing={0}
         supply={0}
@@ -46,19 +46,19 @@ describe("<Tokenomics />", () => {
         data-testid="tokenomics"
       />
     );
-    const mElement = getByText(/^marketing$/i);
+    const mElement = screen.getByText(/^marketing$/i);
     expect(mElement).toBeInTheDocument();
-    const sElement = getByText(/^max supply$/i);
+    const sElement = screen.getByText(/^max supply$/i);
     expect(sElement).toBeInTheDocument();
-    const dElement = getByText(/^dev fund$/i);
+    const dElement = screen.getByText(/^dev fund$/i);
     expect(dElement).toBeInTheDocument();
-    const fElement = getByText(/^shtfi farm$/i);
+    const fElement = screen.getByText(/^shtfi farm$/i);
     expect(fElement).toBeInTheDocument();
-    const pElement = getByText(/^pre mine$/i);
+    const pElement = screen.getByText(/^pre mine$/i);
     expect(pElement).toBeInTheDocument();
   });
   it("renders correct data", () => {
-    const { getByText } = render(
+    render(
       <Tokenomics
         marketing={1}
         supply={2}
@@ -68,20 +68,20 @@ describe("<Tokenomics />", () => {
         data-testid="tokenomics"
       />
     );
-    const mElement = getByText(/^1$/);
+    const mElement = screen.getByText(/^1$/);
     expect(mElement).toBeInTheDocument();
-    const sElement = getByText(/^2$/i);
+    const sElement = screen.getByText(/^2$/i);
     expect(sElement).toBeInTheDocument();
-    const dElement = getByText(/^3$/i);
+    const dElement = screen.getByText(/^3$/i);
     expect(dElement).toBeInTheDocument();
-    const fElement = getByText(/^4$/i);
+    const fElement = screen.getByText(/^4$/i);
     expect(fElement).toBeInTheDocument();
-    const pElement = getByText(/^5$/i);
+    const pElement = screen.getByText(/^5$/i);
     expect(pElement).toBeInTheDocument();
   });
 
   it("uses showPercentage correctly", () => {
-    const { getByText } = render(
+    render(
       <Tokenomics
         marketing={1}
         supply={2}
@@ -92,15 +92,15 @@ describe("<Tokenomics />", () => {
         data-testid="tokenomics"
       />
     );
-    const marketing = getByText(/^1%$/);
+    const marketing = screen.getByText(/^1%$/);
     expect(marketing).toBeInTheDocument();
-    const supply = getByText(/^2$/);
+    const supply = screen.getByText(/^2$/);
     expect(supply).toBeInTheDocument();
-    const devFund = getByText(/^3$/);
+    const devFund = screen.getByText(/^3$/);
     expect(devFund).toBeInTheDocument();
-    const farm = getByText(/^4$/);
+    const farm = screen.getByText(/^4$/);
     expect(farm).toBeInTheDocument();
-    const preMine = getByText(/^5$/);
+    const preMine = screen.getByText(/^5$/);
     expect(preMine).toBeInTheDocument();
   });
 });

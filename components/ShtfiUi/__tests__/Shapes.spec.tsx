@@ -7,10 +7,10 @@ describe("<Shapes />", () => {
     expect(element).toBeInTheDocument();
   });
   it("renders squares by default", () => {
-    const { container, getByTestId } = render(<Shapes data-testid="shape" />);
-    const element = getByTestId("shape");
+    const { baseElement } = render(<Shapes data-testid="shape" />);
+    const element = screen.getByTestId("shape");
     expect(element).toBeInTheDocument();
-    const squares = document.querySelector('[data-shape="squares"]');
+    const squares = baseElement.querySelector('[data-shape="squares"]');
     expect(squares).toBeInTheDocument();
   });
 });

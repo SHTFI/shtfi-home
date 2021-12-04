@@ -14,29 +14,29 @@ describe("<Header />", () => {
     expect(element).toBeInTheDocument();
   });
   it("renders title provided", () => {
-    const { getByText } = render(
+    render(
       <Header
         data-testid="header"
         title="SHTFI"
         subTitle="Stop Helping The Finance Industry"
       />
     );
-    const element = getByText(/shtfi/i);
+    const element = screen.getByText(/shtfi/i);
     expect(element).toBeInTheDocument();
   });
   it("renders sub title provided", () => {
-    const { getByText } = render(
+    render(
       <Header
         data-testid="header"
         title="SHTFI"
         subTitle="Stop Helping The Finance Industry"
       />
     );
-    const element = getByText(/Stop Helping The Finance Industry/i);
+    const element = screen.getByText(/Stop Helping The Finance Industry/i);
     expect(element).toBeInTheDocument();
   });
   it("has logo provided", () => {
-    const { container, getByTestId } = render(
+    const { baseElement, getByTestId } = render(
       <Header
         data-testid="header"
         title="SHTFI"
@@ -44,13 +44,13 @@ describe("<Header />", () => {
         logo="/assets/images/logo.svg"
       />
     );
-    const element = getByTestId("header");
+    const element = screen.getByTestId("header");
     expect(element).toBeInTheDocument();
-    const img = container.querySelector('img[src="/assets/images/logo.svg"]');
+    const img = baseElement.querySelector('img[src="/assets/images/logo.svg"]');
     expect(img).toBeInTheDocument();
   });
   it("has the logo alt text provided", () => {
-    const { getByAltText, getByTestId } = render(
+    render(
       <Header
         data-testid="header"
         title="SHTFI"
@@ -59,13 +59,13 @@ describe("<Header />", () => {
         logoAlt="Hey"
       />
     );
-    const element = getByTestId("header");
+    const element = screen.getByTestId("header");
     expect(element).toBeInTheDocument();
-    const img = getByAltText("Hey");
+    const img = screen.getByAltText("Hey");
     expect(img).toBeInTheDocument();
   });
   it("has social icons when prop passed", () => {
-    const { getByTestId, getByTitle } = render(
+    render(
       <Header
         data-testid="header"
         title="SHTFI"
@@ -75,12 +75,12 @@ describe("<Header />", () => {
         socialIcons={true}
       />
     );
-    const element = getByTestId("header");
+    const element = screen.getByTestId("header");
     expect(element).toBeInTheDocument();
     for (let network in socialLinksData) {
       const key = network as keyof typeof socialLinksData;
       const obj = socialLinksData[key];
-      const element = getByTitle(
+      const element = screen.getByTitle(
         `View ${obj?.profileName} on ${network}`
       ) as HTMLAnchorElement;
       expect(element).toBeInTheDocument();

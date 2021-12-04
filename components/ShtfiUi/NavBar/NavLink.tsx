@@ -13,7 +13,7 @@ const NavLink: React.FC<NavLinkProps> = ({
   ...rest
 }) => {
   return (
-    <Link href={href} {...rest}>
+    <Link href={href} passHref={true} {...rest}>
       <StyledNavLink title={title} onClick={onClick}>
         {!!icon ? (
           <Image src={icon} alt={iconAlt} width={25} height={25} />

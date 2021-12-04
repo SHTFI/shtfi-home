@@ -184,11 +184,103 @@ exports[`renders homepage unchanged 1`] = `
           <div
             className="pages__StyledCardContent-sc-tddur0-5 dOtaYP"
           >
-            <img
-              height={100}
-              src="/assets/icons/shtfi/toilet-roll.svg"
-              width={100}
-            />
+            <div
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "display": "inline-block",
+                  "margin": 0,
+                  "maxWidth": "100%",
+                  "overflow": "hidden",
+                  "position": "relative",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "maxWidth": "100%",
+                  }
+                }
+              >
+                <img
+                  alt=""
+                  aria-hidden={true}
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                  style={
+                    Object {
+                      "border": "none",
+                      "display": "block",
+                      "margin": 0,
+                      "maxWidth": "100%",
+                      "padding": 0,
+                    }
+                  }
+                />
+              </div>
+              <img
+                alt="SHTFI toilet roll"
+                data-nimg="intrinsic"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style={
+                  Object {
+                    "border": "none",
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "height": 0,
+                    "left": 0,
+                    "margin": "auto",
+                    "maxHeight": "100%",
+                    "maxWidth": "100%",
+                    "minHeight": "100%",
+                    "minWidth": "100%",
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "padding": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "width": 0,
+                  }
+                }
+              />
+              <noscript>
+                <img
+                  alt="SHTFI toilet roll"
+                  data-nimg="intrinsic"
+                  decoding="async"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fassets%2Ficons%2Fshtfi%2Ftoilet-roll.svg&w=256&q=75"
+                  srcSet="/_next/image?url=%2Fassets%2Ficons%2Fshtfi%2Ftoilet-roll.svg&w=128&q=75 1x, /_next/image?url=%2Fassets%2Ficons%2Fshtfi%2Ftoilet-roll.svg&w=256&q=75 2x"
+                  style={
+                    Object {
+                      "border": "none",
+                      "bottom": 0,
+                      "boxSizing": "border-box",
+                      "display": "block",
+                      "height": 0,
+                      "left": 0,
+                      "margin": "auto",
+                      "maxHeight": "100%",
+                      "maxWidth": "100%",
+                      "minHeight": "100%",
+                      "minWidth": "100%",
+                      "objectFit": undefined,
+                      "objectPosition": undefined,
+                      "padding": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                      "width": 0,
+                    }
+                  }
+                />
+              </noscript>
+            </div>
             <h3
               className="Heading__H3-sc-1n3vzci-2 jNenAk"
               style={
@@ -200,7 +292,7 @@ exports[`renders homepage unchanged 1`] = `
               NFTs? Why not!?
             </h3>
             <p>
-              The SHTFI protocol will not be without its own set of useless NFTs which, in reality, mean nothing whatsoever. That doesn't mean you can't still tell yourself you own a unique picture of poop which no-one else has!
+              The SHTFI protocol will not be without its own set of useless NFTs which, in reality, mean nothing whatsoever. That doesnt mean you cant still tell yourself you own a unique picture of poop which no-one else has!
             </p>
             <button
               className="Button__StyledButton-sc-9q0s2c-0 iYdTtK"
@@ -232,7 +324,7 @@ exports[`renders homepage unchanged 1`] = `
                     Because we can!
                   </h4>
                   <p>
-                    NFTs have become all the rage for reasons that are beyond the point of fungibility and the SHTFI protocol is all about being pointless. So let's do it! Let's make some NFTs!
+                    NFTs have become all the rage for reasons that are beyond the point of fungibility and the SHTFI protocol is all about being pointless. So lets do it! Lets make some NFTs!
                   </p>
                 </div>
                 <button
