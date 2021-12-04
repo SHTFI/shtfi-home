@@ -14,15 +14,14 @@ import GlobalFonts from "styles/fonts";
 import Head from "next/head";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  // Ensure this only runs on the client
-  if (typeof window !== "undefined") {
-    useEffect(() => {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
       document.documentElement.style.setProperty(
         "--vh",
         `${window.innerHeight * 0.01}px`
       );
-    }, []);
-  }
+    }
+  }, []);
   return (
     <>
       <Head>
@@ -46,7 +45,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                 <p>
                   It was made as a semi protest to the swathe of pointless meme
                   coins, clone coins and the general lack of innovation by some
-                  so-called '<em>dev teams</em>'.
+                  so-called <em>dev teams</em>.
                 </p>
               </Modal>
             </li>

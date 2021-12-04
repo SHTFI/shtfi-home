@@ -9,6 +9,7 @@ import {
   Tokenomics,
   Modal,
 } from "components";
+import Image from "next/image";
 import { socialLinksData } from "utils";
 import styled from "styled-components";
 
@@ -91,8 +92,9 @@ const Home: NextPage = () => {
           <StyledCardSection id="features">
             <Card>
               <StyledCardContent>
-                <img
+                <Image
                   src="/assets/icons/shtfi/toilet-roll.svg"
+                  alt="SHTFI toilet roll"
                   width={100}
                   height={100}
                 />
@@ -103,8 +105,8 @@ const Home: NextPage = () => {
                 />
                 <p>
                   The SHTFI protocol will not be without its own set of useless
-                  NFTs which, in reality, mean nothing whatsoever. That doesn't
-                  mean you can't still tell yourself you own a unique picture of
+                  NFTs which, in reality, mean nothing whatsoever. That doesnt
+                  mean you cant still tell yourself you own a unique picture of
                   poop which no-one else has!
                 </p>
                 <Modal buttonLabel="But, Why?">
@@ -113,8 +115,7 @@ const Home: NextPage = () => {
                     <p>
                       NFTs have become all the rage for reasons that are beyond
                       the point of fungibility and the SHTFI protocol is all
-                      about being pointless. So let's do it! Let's make some
-                      NFTs!
+                      about being pointless. So lets do it! Lets make some NFTs!
                     </p>
                   </div>
                 </Modal>
