@@ -1,8 +1,17 @@
 import { useEffect } from "react";
 import type { AppProps } from "next/app";
-import { NavBar, Footer, FooterTile, Heading } from "components";
+import {
+  NavBar,
+  Footer,
+  FooterTile,
+  Heading,
+  Modal,
+  SocialLinks,
+} from "components";
+import { navLinks } from "utils";
 import GlobalStyle from "styles/globals";
 import GlobalFonts from "styles/fonts";
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   // Ensure this only runs on the client
   if (typeof window !== "undefined") {
@@ -17,76 +26,62 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <>
       <GlobalStyle />
       <GlobalFonts />
-      <NavBar
-        linkList={[
-          {
-            href: "/",
-            title: "A link",
-            label: "A Label",
-            iconAlt: "An icon",
-            icon: "/assets/icons/shtfi.svg",
-          },
-          {
-            href: "/",
-            title: "A link",
-            label: "A Label",
-            iconAlt: "An icon",
-            icon: "/assets/icons/shtfi.svg",
-          },
-          {
-            href: "/",
-            title: "A link",
-            label: "A Label",
-            iconAlt: "An icon",
-            icon: "/assets/icons/shtfi.svg",
-          },
-          {
-            href: "/",
-            title: "A link",
-            label: "A Label",
-            iconAlt: "An icon",
-            icon: "/assets/icons/shtfi.svg",
-          },
-          {
-            href: "/",
-            title: "A link",
-            label: "A Label",
-            iconAlt: "An icon",
-            icon: "/assets/icons/shtfi.svg",
-          },
-          {
-            href: "/",
-            title: "A link",
-            label: "A Label",
-            iconAlt: "An icon",
-            icon: "/assets/icons/shtfi.svg",
-          },
-          {
-            href: "/",
-            title: "A link",
-            label: "A Label",
-            iconAlt: "An icon",
-            icon: "/assets/icons/shtfi.svg",
-          },
-          {
-            href: "/",
-            title: "A link",
-            label: "A Label",
-            iconAlt: "An icon",
-            icon: "/assets/icons/shtfi.svg",
-          },
-        ]}
-        logo="/assets/icons/shtfi.svg"
-      />
+      <NavBar linkList={navLinks} logo="/assets/icons/shtfi.svg" />
       <Component {...pageProps} />
       <Footer>
+        <SocialLinks align="center" />
         <FooterTile>
-          <Heading level={4} text="Links" align="center" />
           <ul>
-            <li>About us</li>
-            <li>Privacy policy</li>
-            <li>Investment advice</li>
-            <li>Terms of use</li>
+            <li>
+              <Modal buttonLabel="About us" buttonProps={{ link: true }}>
+                <Heading text="About SHTFI" level={3} />
+                <p>
+                  SHTFI is a decentralised and open source protocol which was
+                  created as a side project.
+                </p>
+                <p>
+                  It was made as a semi protest to the swathe of pointless meme
+                  coins, clone coins and the general lack of innovation by some
+                  so-called '<em>dev teams</em>'.
+                </p>
+              </Modal>
+            </li>
+            <li>
+              <Modal buttonLabel="Privacy policy" buttonProps={{ link: true }}>
+                <Heading text="Privacy policy" level={3} />
+                <p>
+                  We do not store any of your data nor do we pass it on to third
+                  parties.
+                </p>
+                <p>
+                  This site does not have any capability to track your behaviour
+                  either online or offline.
+                </p>
+                <p>
+                  We do not sell your data to advertisers (we dont have any data
+                  on you) and we do not have any advertising pixels.
+                </p>
+              </Modal>
+            </li>
+            <li>
+              <Modal buttonLabel="Terms of use" buttonProps={{ link: true }}>
+                <Heading text="Terms of use" level={3} />
+                <p>
+                  Our terms of use are simple: by using this site you agree to
+                  two things:
+                </p>
+                <ol>
+                  <li>
+                    SHTFI is not responsibly for any financial losses made when
+                    interacting with the SHTFI website or protocol.
+                  </li>
+                  <li>
+                    SHTFI is not responsible for any technical damage to your
+                    machine when using the SHTFI website or protocol
+                  </li>
+                </ol>
+              </Modal>
+            </li>
           </ul>
         </FooterTile>
       </Footer>
