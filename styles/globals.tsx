@@ -30,12 +30,16 @@ body {
   margin: 0;
   font-family: poppins, sans-serif;
   overflow-x: hidden;
-  background: linear-gradient(45deg, var(--light), var(--light-blue));
 }
 
 html {
   box-sizing: border-box;
   font-size: 100%;
+  letter-spacing: 0.5px;
+}
+
+body {
+  background: linear-gradient(45deg, var(--light), var(--light-blue));
 }
 
 a {

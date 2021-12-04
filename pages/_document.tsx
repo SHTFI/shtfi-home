@@ -30,7 +30,9 @@ class MainDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head></Head>
+        <Head>
+          <link rel="canonical" href={process.env.NEXT_PUBLIC_URL} />
+        </Head>
         <body>
           <Main />
           <NextScript />

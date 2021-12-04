@@ -19,8 +19,8 @@ describe("<NavBar />", () => {
     expect(nav).toBeInTheDocument();
   });
 
-  it("has a burger menu button on screen less than 501px", () => {
-    global.innerWidth = 500;
+  it("has a burger menu button on screen less than 701px", () => {
+    global.innerWidth = 700;
     const { container } = render(<NavBar data-testid="nav" linkList={LINKS} />);
     const nav = container.querySelector('[data-testid="nav"]');
     expect(nav).toBeInTheDocument();
@@ -147,8 +147,8 @@ describe("<NavBar />", () => {
     expect(logoParent.href).toBe("http://localhost/");
   });
 
-  it("shows desktop nav on screens more than 500px wide", () => {
-    global.innerWidth = 600;
+  it("shows desktop nav on screens more than 700px wide", () => {
+    global.innerWidth = 701;
     const { container } = render(<NavBar data-testid="nav" linkList={LINKS} />);
     const nav = container.querySelector('[data-testid="nav"]');
     expect(nav).toBeInTheDocument();
