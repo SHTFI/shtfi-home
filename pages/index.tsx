@@ -1,12 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import {
-  Button,
   Card,
   Header,
   Heading,
   Slider,
-  Shapes,
   TextIcon,
   Tokenomics,
   Modal,
@@ -30,10 +28,10 @@ const Home: NextPage = () => {
           subTitle="Stop Helping The Finance Industry"
           logo="/assets/icons/shtfi-bg.svg"
           logoAlt="SHTFI logo"
+          socialIcons={true}
         />
         {/* Intro section */}
-        <StyledIntroSection>
-          <Shapes background={true} />
+        <StyledIntroSection id="intro">
           <Heading text="Yield Farming Like Never Before" level={2} />
           <p>
             SHTFI is a brand new protocol with a unique distribution mechanism
@@ -48,75 +46,79 @@ const Home: NextPage = () => {
           farm={100}
           preMine={0}
           showPercent={["farm"]}
-          showLarge={["farm", "supply"]}
+          showLarge={["farm", "supply", "devFund", "marketing", "preMine"]}
+          id="tokenomics"
         />
-        {/* Card section */}
-        <StyledCardSection>
-          <Card>
-            <Shapes
-              background={false}
-              size="tiny"
-              style={{ margin: "calc(var(--large-space) * 2) auto" }}
-            />
-            <StyledCardContent>
-              <Heading
-                level={3}
-                text="NFTs? Why not!?"
-                style={{ marginTop: 0 }}
-              />
-              <p>
-                The SHTFI protocol will not be without its own set of useless
-                NFTs which, in reality, mean nothing whatsoever. That doesn't
-                mean you can't still tell yourself you own a unique picture of
-                poop which no-one else has!
-              </p>
-              <Modal buttonLabel="But, Why?">
-                <div>
-                  <Heading text="Because we can!" level={4} />
-                  <p>
-                    NFTs have become all the rage for reasons that are beyond
-                    the point of fungibility and the SHTFI protocol is all about
-                    being pointless. So let's do it! Let's make some NFTs!
-                  </p>
-                </div>
-              </Modal>
-            </StyledCardContent>
-          </Card>
-        </StyledCardSection>
-        {/* Slider section */}
-        <StyledSliderSection>
-          <Heading level={2} text="What is SHTFI?" />
-          <Slider>
-            <div>
-              <TextIcon
-                heading="Crypto Farm"
-                copy="The most open and, probably, shit crypto farm of all time. Our smart contract was NOT forked from another major project and, as a result, is probably full of vulnerabilities. "
-                icon="farm"
-              />
-            </div>
-            <div>
-              <TextIcon
-                heading="Open Sauce"
-                copy="SHTFI is very much like that bottle of ketchup with flies all over it at your local chippy... Open Sauce. In fact, there will be a guide created to teach exactly how to release your own shitty project!"
-                icon="sauce"
-              />
-            </div>
-            <div>
-              <TextIcon
-                heading="A Fun Side Project"
-                copy="SHTFI was built as a side project by Making Stuffs (Paul Singh) and was not made with the intention of becoming a moon shit, I mean shot."
-                icon="game"
-              />
-            </div>
-            <div>
-              <TextIcon
-                heading="Decentralised"
-                copy="Yes, SHTFI was created by a one man band, however, it doesn't have to stay this way. Join in, contribute to the GitHub, add to the protocol, let's do this shit together!"
-                icon="chain"
-              />
-            </div>
-          </Slider>
-        </StyledSliderSection>
+        <StyledFeaturesSection>
+          {/* Card section */}
+          <StyledCardSection id="features">
+            <Card>
+              <StyledCardContent>
+                <img
+                  src="assets/icons/toilet-roll.svg"
+                  width={100}
+                  height={100}
+                />
+                <Heading
+                  level={3}
+                  text="NFTs? Why not!?"
+                  style={{ marginTop: 0 }}
+                />
+                <p>
+                  The SHTFI protocol will not be without its own set of useless
+                  NFTs which, in reality, mean nothing whatsoever. That doesn't
+                  mean you can't still tell yourself you own a unique picture of
+                  poop which no-one else has!
+                </p>
+                <Modal buttonLabel="But, Why?">
+                  <div>
+                    <Heading text="Because we can!" level={4} />
+                    <p>
+                      NFTs have become all the rage for reasons that are beyond
+                      the point of fungibility and the SHTFI protocol is all
+                      about being pointless. So let's do it! Let's make some
+                      NFTs!
+                    </p>
+                  </div>
+                </Modal>
+              </StyledCardContent>
+            </Card>
+          </StyledCardSection>
+          {/* Slider section */}
+          <StyledSliderSection id="about">
+            <Heading level={2} text="What is SHTFI?" />
+            <Slider>
+              <div>
+                <TextIcon
+                  heading="Crypto Farm"
+                  copy="The most open and, probably, shit crypto farm of all time. Our smart contract was NOT forked from another major project and, as a result, is probably full of vulnerabilities. "
+                  icon="farm"
+                />
+              </div>
+              <div>
+                <TextIcon
+                  heading="Open Sauce"
+                  copy="SHTFI is very much like that bottle of ketchup with flies all over it at your local chippy... Open Sauce. In fact, there will be a guide created to teach exactly how to release your own shitty project!"
+                  icon="sauce"
+                />
+              </div>
+              <div>
+                <TextIcon
+                  heading="A Fun Side Project"
+                  copy="SHTFI was built as a side project by Making Stuffs (Paul Singh) and was not made with the intention of becoming a moon shit, I mean shot."
+                  icon="game"
+                />
+              </div>
+              <div>
+                <TextIcon
+                  heading="Decentralised"
+                  copy="Yes, SHTFI was created by a one man band, however, it doesn't have to stay this way. Join in, contribute to the GitHub, add to the protocol, let's do this shit together!"
+                  icon="chain"
+                />
+              </div>
+            </Slider>
+          </StyledSliderSection>
+        </StyledFeaturesSection>
       </StyledMain>
     </StyledWrapper>
   );
@@ -131,34 +133,62 @@ const StyledIntroSection = styled.section`
   position: relative;
   min-width: 250px;
   min-height: 250px;
-  padding: 0 var(--large-space);
+  padding: 0 var(--large-space) calc(var(--large-space) * 3) var(--large-space);
+  margin: 0 auto;
+  max-width: 450px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background-image: url("/assets/icons/toilet-poop.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+  }
 `;
-const StyledCardSection = styled.section`
+const StyledFeaturesSection = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  position: relative;
+  &::before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("assets/icons/log-poop.svg");
+    opacity: 0.1;
+    content: "";
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: 75%;
+  }
+`;
+const StyledCardSection = styled.div`
   padding: calc(var(--large-space) * 6) 0;
   position: relative;
-  &::after {
-    width: 100%;
-    height: 50%;
-    border-radius: 0 0 calc(var(--radius-large) * 2)
-      calc(var(--radius-large) * 2);
-    background-color: var(--blue);
-    position: absolute;
-    bottom: 0;
-    content: "";
-    z-index: -1;
-  }
 `;
 const StyledCardContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: var(--large-space);
+  > img {
+    align-self: center;
+    margin-bottom: var(--large-space);
+  }
   > h3 {
     text-align: center;
     font-size: var(--head-font);
   }
 `;
-const StyledSliderSection = styled.section`
+const StyledSliderSection = styled.div`
   padding: calc(var(--large-space) * 6) 0;
+  max-width: 350px;
+  min-width: 200px;
+  position: relative;
 `;
 export default Home;
