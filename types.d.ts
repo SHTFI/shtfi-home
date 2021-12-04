@@ -23,3 +23,16 @@ type CoinDistribution = {
   marketing: number | string;
   farm: number | "percent";
 };
+
+interface SocialLinksData {
+  github?: SocialLink;
+  twitter?: SocialLink;
+  telegram?: SocialLink;
+  facebook?: SocialLink;
+  linkedin?: SocialLink;
+}
+
+type SocialLink = {
+  profileUrl: string;
+  profileName: string;
+};
