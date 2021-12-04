@@ -20,12 +20,8 @@ const Shapes: React.FC<ShapesProps> = ({
 };
 
 const StyledWrapper = styled.div`
-  width: 90%;
-  height: 90%;
-  min-width: 250px;
-  min-height: 250px;
-  max-width: 300px;
-  max-height: 300px;
+  width: 250px;
+  height: 250px;
   margin: auto;
   opacity: 0.1;
 
@@ -42,10 +38,8 @@ const StyledWrapper = styled.div`
   }
 
   &[data-size="tiny"] {
-    min-width: 50px;
-    min-height: 50px;
-    max-width: 100px;
-    max-height: 100px;
+    width: 75px;
+    height: 75px;
 
     [data-shape="squares"] > span {
       border-radius: var(--large-space);
@@ -59,15 +53,13 @@ const StyledWrapper = styled.div`
   }
 
   &[data-size="small"] {
-    min-width: 100px;
-    min-height: 100px;
-    max-width: 200px;
-    max-height: 200px;
+    width: 150px;
+    height: 150px;
   }
 
   &[data-size="large"] {
-    max-width: 500px;
-    max-height: 500px;
+    width: 500px;
+    height: 500px;
   }
 `;
 
