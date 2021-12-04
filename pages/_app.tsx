@@ -11,6 +11,7 @@ import {
 import { navLinks } from "utils";
 import GlobalStyle from "styles/globals";
 import GlobalFonts from "styles/fonts";
+import Head from "next/head";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   // Ensure this only runs on the client
@@ -24,9 +25,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      </Head>
       <GlobalStyle />
       <GlobalFonts />
-      <NavBar linkList={navLinks} logo="/assets/icons/shtfi.svg" />
+      <NavBar linkList={navLinks} logo="/assets/icons/shtfi/shtfi.svg" />
       <Component {...pageProps} />
       <Footer>
         <SocialLinks align="center" />
