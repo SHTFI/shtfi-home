@@ -5,6 +5,7 @@ export interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   subTitle?: string;
   logo?: string;
   logoAlt?: string;
+  socialIcons?: boolean;
 }
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -23,4 +24,8 @@ export interface TokenomicsProps
   color?: Colors;
   showPercent?: (keyof CoinDistribution)[];
   showLarge?: (keyof CoinDistribution)[];
+}
+
+export interface SocialLinksProps extends React.HTMLAttributes<HTMLDivElement> {
+  align?: "left" | "center" | "right";
 }
