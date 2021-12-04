@@ -11,7 +11,7 @@ const StyledCard = styled.div`
   background-color: var(--light);
   box-shadow: var(--shadow);
   border-radius: var(--radius-large);
-  max-width: 300px;
+  max-width: 350px;
   max-height: 600px;
   min-width: 200px;
   width: 95%;
