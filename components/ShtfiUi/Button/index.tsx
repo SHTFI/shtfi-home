@@ -9,6 +9,7 @@ const Button: React.FC<ButtonProps> = ({
   txtColor = "light",
   hoverTxtColor = "light",
   margin = "medium",
+  link = false,
   children,
   ...rest
 }) => {
@@ -19,6 +20,7 @@ const Button: React.FC<ButtonProps> = ({
       hoverColor={hoverColor}
       size={size}
       color={color as Colors}
+      link={link}
       {...rest}
     >
       {children}
@@ -26,11 +28,26 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
-const StyledButton = styled.button<ElementStyleProps>`
+const StyledButton = styled.button<{ link: boolean } & ElementStyleProps>`
   ${(props) => {
-    const { color, margin, size, hoverColor, txtColor, hoverTxtColor } = props;
-    return `
-    padding: var(--${size}-space);
+    const { color, margin, size, hoverColor, txtColor, hoverTxtColor, link } =
+      props;
+    return !!link
+      ? `appearance: none;
+      background: transparent;
+      border: none;
+      text-decoration: underline;
+      cursor: pointer;
+      color: inherit;
+      padding: 0;
+      transition: 0.3s ease;
+      
+      &:hover {
+        background-color: var(--dark-blue);
+        color: var(--light);
+      }
+      `
+      : `padding: var(--${size}-space);
     background-color: var(--${color});
     color: var(--${txtColor});
     border-radius: calc(var(--large-space) * 2);
@@ -46,8 +63,7 @@ const StyledButton = styled.button<ElementStyleProps>`
 
     &[disabled] {
       opacity: 0.5;
-    }
-    `;
+    }`;
   }}
 `;
 

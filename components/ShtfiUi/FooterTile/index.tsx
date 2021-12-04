@@ -9,15 +9,19 @@ const StyledFooterTile = styled.div`
   display: flex;
   flex-direction: column;
   ul {
-    margin: 0;
+    margin: var(--large-space) 0;
     padding: 0;
     list-style-type: none;
     width: auto;
     align-self: center;
     min-width: 20ch;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 
     li {
-      margin: 0;
+      white-space: no-wrap;
+      margin: 0 calc(var(--small-space) * 2);
       padding: 0;
       font-weight: 100;
       font-size: var(--meta-font);

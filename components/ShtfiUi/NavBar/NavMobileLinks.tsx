@@ -15,7 +15,9 @@ const NavMobileLinks: React.FC<NavMobileLinksProps> = ({
 }) => {
   const [open, setOpen] = useState<boolean>(false);
   // Create our expand handler
-  const expandHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const expandHandler = (
+    e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => {
     setOpen(!open);
     // If a callback was provided execute it after inverting the open state
     if (!!burgerMenuCallback) {
@@ -47,7 +49,7 @@ const NavMobileLinks: React.FC<NavMobileLinksProps> = ({
           <ul>
             {linkList.map((link, i) => (
               <li key={`${link.href}-${link.label.replace(/\ /g, "")}-${i}`}>
-                <NavLink {...link} />
+                <NavLink {...link} onClick={expandHandler} />
               </li>
             ))}
           </ul>

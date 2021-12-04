@@ -4,6 +4,7 @@ import NavBranding from "./NavBranding";
 import NavDesktopLinks from "./NavDesktopLinks";
 import NavMobileLinks from "./NavMobileLinks";
 import styled from "styled-components";
+
 const NavBar: React.FC<NavBarProps> = ({
   mobileIcon,
   mobileIconAlt,
@@ -21,11 +22,18 @@ const NavBar: React.FC<NavBarProps> = ({
   // Ensure component is only rendered in the client
   const [isMobile, setIsMobile] = useState<boolean>(true);
   // Set dataset of the nav to decide which nav to show
+
   if (typeof window !== "undefined") {
+    const handleResize = (): void => {
+      setIsMobile(window && window.innerWidth <= 700 ? true : false);
+    };
+
     useEffect(() => {
-      setIsMobile(window && window.innerWidth <= 500 ? true : false);
-    }, [window.innerHeight]);
+      setIsMobile(window && window.innerWidth <= 700 ? true : false);
+      window.addEventListener("resize", handleResize);
+    }, []);
   }
+
   return (
     <StyledWrapper {...rest} data-mob={isMobile}>
       <StyledNav id="shtfi-mobile-nav-bar">

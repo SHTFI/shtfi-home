@@ -15,7 +15,6 @@ const StyledCard = styled.div`
   max-height: 600px;
   min-width: 200px;
   width: 95%;
-  height: calc(80 * var(--vh));
   padding: var(--med-space);
   position: relative;
   margin: auto;

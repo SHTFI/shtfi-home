@@ -25,6 +25,7 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     ElementStyleProps {
   label?: string;
+  link?: boolean;
 }
 
 export interface NavBarProps extends React.HTMLAttributesHTML<HTMLDivElement> {
@@ -41,13 +42,13 @@ export interface NavBarProps extends React.HTMLAttributesHTML<HTMLDivElement> {
   linkList: NavLinkType[];
 }
 
-export type NavLinkType = {
+export interface NavLinkType extends React.HTMLAttributes<HTMLAnchorElement> {
   href: string;
   title: string;
   label: string;
   icon?: string;
   iconAlt?: string;
-};
+}
 
 export interface NavLinkProps extends LinkProps, NavLinkType {}
 

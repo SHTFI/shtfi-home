@@ -30,6 +30,7 @@ body {
   margin: 0;
   font-family: poppins, sans-serif;
   overflow-x: hidden;
+  background: linear-gradient(45deg, var(--light), var(--light-blue));
 }
 
 html {

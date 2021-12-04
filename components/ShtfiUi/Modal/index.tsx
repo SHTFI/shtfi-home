@@ -110,6 +110,8 @@ const StyledModal = styled.aside`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 500px;
+  color: var(--dark);
 
   &[aria-hidden="true"] {
     transform: translate(-50%, 100%);
