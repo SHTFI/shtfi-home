@@ -13,11 +13,11 @@ const Modal: React.FC<ModalProps> = ({
   children,
   ...rest
 }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(open);
   // If we have no children exit as modal is pointless
   if (!!!children) {
     return null;
   }
-  const [isOpen, setIsOpen] = useState<boolean>(open);
 
   const handleToggle: React.MouseEventHandler = (
     e: React.MouseEvent<HTMLButtonElement>

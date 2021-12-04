@@ -41,8 +41,8 @@ describe("<Heading />", () => {
   });
 
   it("renders the correct text", () => {
-    const { getByText } = render(<Heading level={1} text="YO" />);
-    const element = getByText(/^yo$/i);
+    render(<Heading level={1} text="YO" />);
+    const element = screen.getByText(/^yo$/i);
     expect(element).toBeInTheDocument();
   });
 });

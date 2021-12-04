@@ -3,7 +3,7 @@ import { TextIcon } from "components";
 
 describe("<TextIcon />", () => {
   it("renders", () => {
-    const { getByTestId } = render(
+    render(
       <TextIcon
         data-testid="textIcon"
         heading="Test"
@@ -11,7 +11,7 @@ describe("<TextIcon />", () => {
         icon="people-carry"
       />
     );
-    const element = getByTestId("textIcon");
+    const element = screen.getByTestId("textIcon");
     expect(element).toBeInTheDocument();
   });
   it("has the correct heading", () => {
@@ -23,7 +23,7 @@ describe("<TextIcon />", () => {
         icon="people-carry"
       />
     );
-    const element = getByText(/^Test$/);
+    const element = screen.getByText(/^Test$/);
     expect(element).toBeInTheDocument();
   });
   it("has the correct copy", () => {
@@ -35,12 +35,12 @@ describe("<TextIcon />", () => {
         icon="people-carry"
       />
     );
-    const element = getByText(/^Hello$/);
+    const element = screen.getByText(/^Hello$/);
     expect(element).toBeInTheDocument();
   });
 
   it("has the correct icon", () => {
-    const { getByText } = render(
+    render(
       <TextIcon
         data-testid="textIcon"
         heading="Test"
@@ -48,7 +48,7 @@ describe("<TextIcon />", () => {
         icon="people-carry"
       />
     );
-    const element = getByText(/^Hello$/);
+    const element = screen.getByText(/^Hello$/);
     expect(element).toBeInTheDocument();
   });
 });

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { SocialLinks } from "components";
 import { HeaderProps } from "../types";
+import Image from "next/image";
 const Header: React.FC<HeaderProps> = ({
   title,
   subTitle,
@@ -14,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({
     <StyledHeader {...rest}>
       {logo && (
         <StyledHeaderLogo>
-          <img src={logo} alt={logoAlt} width={125} height={125} />
+          <Image src={logo} alt={logoAlt} width={125} height={125} />
         </StyledHeaderLogo>
       )}
       <StyledHeaderContent>

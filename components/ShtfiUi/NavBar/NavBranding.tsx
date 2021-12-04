@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavBrandingProps } from "../types";
-
+import Image from "next/image";
 const NavBranding: React.FC<NavBrandingProps> = ({
   logo,
   logoAlt,
@@ -18,7 +18,7 @@ const NavBranding: React.FC<NavBrandingProps> = ({
   return (
     <StyledBranding href="/" title="Go back home">
       {logo ? (
-        <img
+        <Image
           src={logo}
           alt={logoAlt}
           height={!!logoHeight ? logoHeight : 30}

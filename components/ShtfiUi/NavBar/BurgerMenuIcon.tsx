@@ -1,3 +1,4 @@
+import Image from "next/image";
 const BurgerMenuIcon: React.FC<{
   iconPath?: string;
   iconAlt?: string;
@@ -5,7 +6,7 @@ const BurgerMenuIcon: React.FC<{
   height?: number;
 }> = ({ iconPath, iconAlt, ...rest }) =>
   !!iconPath ? (
-    <img src={iconPath} alt={iconAlt} {...rest} />
+    <Image src={iconPath} alt={iconAlt} {...rest} />
   ) : (
     <svg
       width="17"
