@@ -63,7 +63,7 @@ const Home: NextPage = () => {
         {/* Header section */}
         <Header
           title="SHTFI"
-          subTitle="Stop Helping The Finance Industry"
+          subTitle="Open Source Yield Farming and Defi Protocol"
           logo="/assets/icons/shtfi/shtfi-bg.svg"
           logoAlt="SHTFI logo"
           socialIcons={true}
