@@ -7,3 +7,8 @@ export { default as Modal } from "./Modal";
 export { default as Shapes } from "./Shapes";
 export { default as TextIcon } from "./TextIcon";
 export { default as Slider } from "./Slider";
+export { default as Input } from "./Input";
+export { default as Header } from "./Header";
+export { default as SocialLinks } from "./SocialLinks";
+export { default as Tokenomics } from "./Tokenomics";
+export { default as Card } from "./Card";
