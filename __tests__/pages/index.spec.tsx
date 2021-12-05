@@ -29,14 +29,4 @@ describe("Home", () => {
     const heading = screen.getByText(/^What is SHTFI\?$/);
     expect(heading).toBeInTheDocument();
   });
-
-  it("renders footer links", () => {
-    render(<Home />);
-    const about = screen.getByText(/^About us$/);
-    const privacy = screen.getByText(/^Privacy policy$/);
-    const terms = screen.getByText(/^Terms of use$/);
-    expect(about).toBeInTheDocument();
-    expect(privacy).toBeInTheDocument();
-    expect(terms).toBeInTheDocument();
-  });
 });
