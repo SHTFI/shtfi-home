@@ -1,0 +1,22 @@
+import { CardProps } from "components/ShtfiUi/types";
+import styled from "styled-components";
+
+const Card: React.FC<CardProps> = ({ children, ...rest }) => {
+  return <StyledCard {...rest}>{children}</StyledCard>;
+};
+
+const StyledCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius-large);
+  max-width: 350px;
+  max-height: 600px;
+  min-width: 200px;
+  width: 95%;
+  padding: var(--med-space);
+  position: relative;
+  margin: auto;
+`;
+export default Card;
