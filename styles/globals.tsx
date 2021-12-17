@@ -60,4 +60,8 @@ button {
 section {
   margin: var(--large-space) 0;
 }
+
+p {
+  margin: 0;
+}
 `;
