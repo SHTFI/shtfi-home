@@ -1,8 +1,12 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
-import { Header } from "components";
-import { FarmIntroSection, FarmSelectSection, FarmMeta } from "views";
+import {
+  Header,
+  FarmIntroSection,
+  FarmSelectSection,
+  FarmMeta,
+} from "components";
 
 const Farm: NextPage = () => {
   return (

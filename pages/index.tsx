@@ -1,8 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Header, Tokenomics } from "components";
-import { Meta, IntroSection, FeaturesSection } from "views";
-import { socialLinksData } from "utils";
+import {
+  Header,
+  Tokenomics,
+  Meta,
+  IntroSection,
+  FeaturesSection,
+} from "components";
 import styled from "styled-components";
 
 const Home: NextPage = () => {
