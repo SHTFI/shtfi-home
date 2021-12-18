@@ -139,3 +139,17 @@ export interface TokenomicsProps
 export interface SocialLinksProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: "left" | "center" | "right";
 }
+
+interface MetaProps {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  type?: string;
+  name?: string;
+  card?: string;
+  twitterSite?: string;
+  twitterCreator?: string;
+  robots?: string;
+  favicon?: string;
+}
