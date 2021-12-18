@@ -1,18 +1,19 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
-import {
-  Header,
-  FarmIntroSection,
-  FarmSelectSection,
-  FarmMeta,
-} from "components";
+import { Header, FarmIntroSection, FarmSelectSection, Meta } from "components";
 
 const Farm: NextPage = () => {
   return (
     <StyledWrapper>
       <Head>
-        <FarmMeta />
+        <Meta
+          title="Farms | SHTFI.io | Open Source Yield Farming and Defi Protocol"
+          url="https://shtfi.io/farm"
+          description="Welcome to the SHTFI farms. Here you will be able to stake various cryptocurrencies and receive SHTFI as a reward"
+          name="SHTFI"
+          image="https://shtfi.io/assets/images/social-cards/social-card-1000-500.jpeg"
+        />
       </Head>
       <Header
         title="SHTFI"

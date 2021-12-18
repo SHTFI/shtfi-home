@@ -12,9 +12,13 @@ import styled from "styled-components";
 const Home: NextPage = () => {
   return (
     <StyledWrapper>
-      <Head>
-        <Meta />
-      </Head>
+      <Meta
+        title="SHTFI.io | Open Source Yield Farming and Defi Protocol"
+        url="https://shtfi.io/"
+        description="SHTFI is a brand new yield farming and defi protocol with a unique distribution mechanism which will see 0 pre-mine and 0 dev fund."
+        name="SHTFI"
+        image="https://shtfi.io/assets/images/social-cards/social-card-1000-500.jpeg"
+      />
       <StyledMain>
         <Header
           title="SHTFI"
