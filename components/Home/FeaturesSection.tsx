@@ -84,7 +84,7 @@ const StyledFeaturesSection = styled.section`
     width: 100%;
     height: 100%;
     position: absolute;
-    background: url("assets/icons/log-poop.svg");
+    background: url("assets/icons/shtfi/log-poop.svg");
     opacity: 0.1;
     content: "";
     background-repeat: no-repeat;
