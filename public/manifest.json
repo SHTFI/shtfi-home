@@ -1,0 +1,46 @@
+{
+  "short_name": "SHTFI",
+  "name": "SHTFI",
+  "description": "SHTFI is a brand new yield farming and defi protocol with a unique distribution mechanism which will see 0 pre-mine and 0 dev fund.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "128x128 64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/assets/icons/shtfi/shit-logo-square-125-125.jpeg",
+      "type": "image/jpeg",
+      "sizes": "125x125"
+    },
+    {
+      "src": "/assets/icons/shtfi/shit-logo-square-250-250.jpeg",
+      "type": "image/jpeg",
+      "sizes": "250x250"
+    },
+    {
+      "src": "/assets/icons/shtfi/shit-logo-square-500-500.jpeg",
+      "type": "image/jpeg",
+      "sizes": "500x500"
+    },
+    {
+      "src": "/assets/icons/shtfi/shit-logo-square-750-750.jpeg",
+      "type": "image/jpeg",
+      "sizes": "750x750"
+    },
+    {
+      "src": "/assets/icons/shtfi/shit-logo-square-1000-1000.jpeg",
+      "type": "image/jpeg",
+      "sizes": "1000x1000"
+    },
+    {
+      "src": "/assets/icons/shtfi/shit-logo-square-1500-1500.jpeg",
+      "type": "image/jpeg",
+      "sizes": "1500x1500"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#C8FAFF",
+  "background_color": "#C8FAFF"
+}
