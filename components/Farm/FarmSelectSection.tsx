@@ -1,25 +1,31 @@
 import { Input, Card, Button } from "components";
 import styled from "styled-components";
 import Image from "next/image";
-const FarmSelectSection: React.FC = () => {
+import { FarmSectionProps } from "types";
+
+const FarmSelectSection: React.FC<FarmSectionProps> = ({
+  stakedToken,
+  rewardToken,
+  ...rest
+}) => {
   return (
-    <StyledFarmSection>
+    <StyledFarmSection {...rest}>
       <Input placeholder="Search for coin" button={true} />
       <StyledFarmCard>
         <StyledFarmHeader>
           <StyledFarmHeaderIcons>
             <StyledTokenIcon>
               <Image
-                src="/assets/images/tokens/squid-150-150.png"
-                alt="Squid Game Token Icon"
+                src={stakedToken.icon}
+                alt={`${stakedToken.name} icon`}
                 width="50px"
                 height="50px"
               />
             </StyledTokenIcon>
             <StyledTokenIcon>
               <Image
-                src="/assets/icons/shtfi/shtfi-bg.svg"
-                alt="Squid Game Token Icon"
+                src={rewardToken.icon}
+                alt={`${rewardToken.name} icon`}
                 width="75px"
                 height="75px"
               />
@@ -27,41 +33,57 @@ const FarmSelectSection: React.FC = () => {
           </StyledFarmHeaderIcons>
           <StyledFarmHeaderMeta>
             <p>
-              Stake: <span>SQUID</span>
+              Stake: <span>{stakedToken.ticker}</span>
             </p>
             <p>
-              Get: <span>SHTFI</span>
+              Get: <span>{rewardToken.ticker}</span>
             </p>
           </StyledFarmHeaderMeta>
         </StyledFarmHeader>
         <StyledFarmInfo>
           <p>
-            Total SQUID: <span>123,123</span>
+            Total {stakedToken.ticker}: <span>123,123</span>
           </p>
           <p>
-            SHTFI per block: <span>0.02</span>
+            {rewardToken.ticker} per block: <span>0.02</span>
           </p>
           <p>
-            SHTFI per SQUID: <span>0.00000001234</span>
+            {rewardToken.ticker} per {stakedToken.ticker}:{" "}
+            <span>0.00000001234</span>
           </p>
         </StyledFarmInfo>
         <StyledFarmActions>
           <StyledFarmAction>
             <StyledFarmActionInfo>
               <span>Your Stake:</span>
-              <span>222222 SQUID</span>
+              <span>222222 {stakedToken.ticker}</span>
             </StyledFarmActionInfo>
-            <StyledFarmActionButton size="med">Unstake</StyledFarmActionButton>
+            <StyledFarmActionButton
+              id={`unstake-${stakedToken.ticker}-${rewardToken.ticker}`}
+              size="med"
+            >
+              Unstake
+            </StyledFarmActionButton>
           </StyledFarmAction>
           <StyledFarmAction>
             <StyledFarmActionInfo>
               <span>Your Rewards:</span>
-              <span>222 SHTFI</span>
+              <span>222 {rewardToken.ticker}</span>
             </StyledFarmActionInfo>
-            <StyledFarmActionButton size="med">Claim</StyledFarmActionButton>
+            <StyledFarmActionButton
+              id={`claim-${stakedToken.ticker}-${rewardToken.ticker}`}
+              size="med"
+            >
+              Claim
+            </StyledFarmActionButton>
           </StyledFarmAction>
           <StyledFarmAction justify="center">
-            <StyledFarmActionButton size="med">Stake</StyledFarmActionButton>
+            <StyledFarmActionButton
+              id={`stake-${stakedToken.ticker}-${rewardToken.ticker}`}
+              size="med"
+            >
+              Stake
+            </StyledFarmActionButton>
           </StyledFarmAction>
         </StyledFarmActions>
       </StyledFarmCard>
