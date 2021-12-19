@@ -46,7 +46,11 @@ type FarmToken = {
   contract: string;
 };
 
-interface FarmSectionProps extends React.HTMLAttributes<HTMLDivElement> {
+interface FarmingPair {
   stakedToken: FarmToken;
   rewardToken: FarmToken;
+}
+
+interface FarmSectionProps extends React.HTMLAttributes<HTMLDivElement> {
+  farms: FarmingPair[];
 }
