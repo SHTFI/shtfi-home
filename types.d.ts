@@ -54,3 +54,8 @@ interface FarmingPair {
 interface FarmSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   farms: FarmingPair[];
 }
+
+interface FarmCardProps extends React.HTMLAttributes<HTMLDivElement> {
+  stakedToken: FarmToken;
+  rewardToken: FarmToken;
+}
