@@ -5,10 +5,10 @@ exports[`renders farm unchanged 1`] = `
   className="farm__StyledWrapper-sc-e4pgpt-0 gVxxlN"
 >
   <header
-    className="Header__StyledHeader-sc-1w0zh9p-0 hXvtZN"
+    className="Header__StyledHeader-sc-k859ru-0 iRENco"
   >
     <picture
-      className="Header__StyledHeaderLogo-sc-1w0zh9p-1 jQvDAY"
+      className="Header__StyledHeaderLogo-sc-k859ru-1 iRvyht"
     >
       <div
         style={
@@ -109,7 +109,7 @@ exports[`renders farm unchanged 1`] = `
       </div>
     </picture>
     <div
-      className="Header__StyledHeaderContent-sc-1w0zh9p-2 iVZWqN"
+      className="Header__StyledHeaderContent-sc-k859ru-2 bonaFM"
     >
       <h1>
         SHTFI
@@ -118,10 +118,10 @@ exports[`renders farm unchanged 1`] = `
         Stop Helping The Finance Industry
       </p>
       <div
-        className="SocialLinks__StyledSocialLinks-sc-194g43x-0 knflLb"
+        className="SocialLinks__StyledSocialLinks-sc-1ts488y-0 fxCZUI"
       >
         <a
-          className="SocialLinks__StyledSocialLink-sc-194g43x-1 hdBtEy"
+          className="SocialLinks__StyledSocialLink-sc-1ts488y-1 ikQGNt"
           href="https://github.com/SHTFI"
           rel="noopener noreferrer"
           target="_blank"
@@ -148,7 +148,7 @@ exports[`renders farm unchanged 1`] = `
           </svg>
         </a>
         <a
-          className="SocialLinks__StyledSocialLink-sc-194g43x-1 hdBtEy"
+          className="SocialLinks__StyledSocialLink-sc-1ts488y-1 ikQGNt"
           href="https://twitter.com/shtfio"
           rel="noopener noreferrer"
           target="_blank"
@@ -178,7 +178,7 @@ exports[`renders farm unchanged 1`] = `
     </div>
   </header>
   <section
-    className="farm__StyledIntroSection-sc-e4pgpt-1 fvmMBg"
+    className="IntroSection__StyledIntroSection-sc-d9m3mh-0 glbpZm"
   >
     <h2
       className="Heading__H2-sc-1n3vzci-1 eSuOyG"
@@ -188,6 +188,363 @@ exports[`renders farm unchanged 1`] = `
     <p>
       Use the input field below to search for a SHTFI farm. Please remember that the smart contracts which govern these farms have been made as a side project and that you use them at your own risk.
     </p>
+  </section>
+  <section
+    className="FarmSelectSection__StyledFarmSection-sc-14ul1m3-0"
+  >
+    <div
+      className="Input__StyledInputWrapper-sc-1cnibht-0 dHVvCj"
+    >
+      <input
+        className="Input__StyledInput-sc-1cnibht-1 ihqDxg"
+        placeholder="Search for coin"
+      />
+      <button
+        className="Button__StyledButton-sc-9q0s2c-0 iYdTtK Input__StyledSearchButton-sc-1cnibht-2 oAisQ"
+        color="blue"
+        size="large"
+      >
+        <svg
+          fill="currentColor"
+          height={20}
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 512 512"
+          width={20}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      className="Card__StyledCard-sc-19xhe45-0 bfdsLg FarmSelectSection__StyledFarmCard-sc-14ul1m3-1 inVnma"
+    >
+      <header
+        className="FarmSelectSection__StyledFarmHeader-sc-14ul1m3-2 lmfntX"
+      >
+        <div
+          className="FarmSelectSection__StyledFarmHeaderIcons-sc-14ul1m3-3 kdlmpA"
+        >
+          <div
+            className="FarmSelectSection__StyledTokenIcon-sc-14ul1m3-4 eaQWBM"
+          >
+            <div
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "display": "inline-block",
+                  "margin": 0,
+                  "maxWidth": "100%",
+                  "overflow": "hidden",
+                  "position": "relative",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "maxWidth": "100%",
+                  }
+                }
+              >
+                <img
+                  alt=""
+                  aria-hidden={true}
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+                  style={
+                    Object {
+                      "border": "none",
+                      "display": "block",
+                      "margin": 0,
+                      "maxWidth": "100%",
+                      "padding": 0,
+                    }
+                  }
+                />
+              </div>
+              <img
+                alt="Squid Token icon"
+                data-nimg="intrinsic"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style={
+                  Object {
+                    "border": "none",
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "height": 0,
+                    "left": 0,
+                    "margin": "auto",
+                    "maxHeight": "100%",
+                    "maxWidth": "100%",
+                    "minHeight": "100%",
+                    "minWidth": "100%",
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "padding": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "width": 0,
+                  }
+                }
+              />
+              <noscript>
+                <img
+                  alt="Squid Token icon"
+                  data-nimg="intrinsic"
+                  decoding="async"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fassets%2Fimages%2Ftokens%2Fsquid-75-75.png&w=128&q=75"
+                  srcSet="/_next/image?url=%2Fassets%2Fimages%2Ftokens%2Fsquid-75-75.png&w=64&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Ftokens%2Fsquid-75-75.png&w=128&q=75 2x"
+                  style={
+                    Object {
+                      "border": "none",
+                      "bottom": 0,
+                      "boxSizing": "border-box",
+                      "display": "block",
+                      "height": 0,
+                      "left": 0,
+                      "margin": "auto",
+                      "maxHeight": "100%",
+                      "maxWidth": "100%",
+                      "minHeight": "100%",
+                      "minWidth": "100%",
+                      "objectFit": undefined,
+                      "objectPosition": undefined,
+                      "padding": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                      "width": 0,
+                    }
+                  }
+                />
+              </noscript>
+            </div>
+          </div>
+          <div
+            className="FarmSelectSection__StyledTokenIcon-sc-14ul1m3-4 eaQWBM"
+          >
+            <div
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "display": "inline-block",
+                  "margin": 0,
+                  "maxWidth": "100%",
+                  "overflow": "hidden",
+                  "position": "relative",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "maxWidth": "100%",
+                  }
+                }
+              >
+                <img
+                  alt=""
+                  aria-hidden={true}
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzUiIGhlaWdodD0iNzUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+                  style={
+                    Object {
+                      "border": "none",
+                      "display": "block",
+                      "margin": 0,
+                      "maxWidth": "100%",
+                      "padding": 0,
+                    }
+                  }
+                />
+              </div>
+              <img
+                alt="SHTFI Token icon"
+                data-nimg="intrinsic"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style={
+                  Object {
+                    "border": "none",
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "height": 0,
+                    "left": 0,
+                    "margin": "auto",
+                    "maxHeight": "100%",
+                    "maxWidth": "100%",
+                    "minHeight": "100%",
+                    "minWidth": "100%",
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "padding": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "width": 0,
+                  }
+                }
+              />
+              <noscript>
+                <img
+                  alt="SHTFI Token icon"
+                  data-nimg="intrinsic"
+                  decoding="async"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fassets%2Fimages%2Ftokens%2Fshtfi-125-125.jpeg&w=256&q=75"
+                  srcSet="/_next/image?url=%2Fassets%2Fimages%2Ftokens%2Fshtfi-125-125.jpeg&w=96&q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Ftokens%2Fshtfi-125-125.jpeg&w=256&q=75 2x"
+                  style={
+                    Object {
+                      "border": "none",
+                      "bottom": 0,
+                      "boxSizing": "border-box",
+                      "display": "block",
+                      "height": 0,
+                      "left": 0,
+                      "margin": "auto",
+                      "maxHeight": "100%",
+                      "maxWidth": "100%",
+                      "minHeight": "100%",
+                      "minWidth": "100%",
+                      "objectFit": undefined,
+                      "objectPosition": undefined,
+                      "padding": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                      "width": 0,
+                    }
+                  }
+                />
+              </noscript>
+            </div>
+          </div>
+        </div>
+        <div
+          className="FarmSelectSection__StyledFarmHeaderMeta-sc-14ul1m3-5 zKzVj"
+        >
+          <p>
+            Stake: 
+            <span>
+              SQUID
+            </span>
+          </p>
+          <p>
+            Get: 
+            <span>
+              SHTFI
+            </span>
+          </p>
+        </div>
+      </header>
+      <div
+        className="FarmSelectSection__StyledFarmInfo-sc-14ul1m3-6 kbWjMu"
+      >
+        <p>
+          Total 
+          SQUID
+          : 
+          <span>
+            123,123
+          </span>
+        </p>
+        <p>
+          SHTFI
+           per block: 
+          <span>
+            0.02
+          </span>
+        </p>
+        <p>
+          SHTFI
+           per 
+          SQUID
+          :
+           
+          <span>
+            0.00000001234
+          </span>
+        </p>
+      </div>
+      <div
+        className="FarmSelectSection__StyledFarmActions-sc-14ul1m3-7"
+      >
+        <div
+          className="FarmSelectSection__StyledFarmAction-sc-14ul1m3-8 ctkYfy"
+        >
+          <div
+            className="FarmSelectSection__StyledFarmActionInfo-sc-14ul1m3-9 iVpae"
+          >
+            <span>
+              Your Stake:
+            </span>
+            <span>
+              222222 
+              SQUID
+            </span>
+          </div>
+          <button
+            className="Button__StyledButton-sc-9q0s2c-0 dawuiH FarmSelectSection__StyledFarmActionButton-sc-14ul1m3-10 bMePyt"
+            color="blue"
+            id="unstake-SQUID-SHTFI"
+            size="med"
+          >
+            Unstake
+          </button>
+        </div>
+        <div
+          className="FarmSelectSection__StyledFarmAction-sc-14ul1m3-8 ctkYfy"
+        >
+          <div
+            className="FarmSelectSection__StyledFarmActionInfo-sc-14ul1m3-9 iVpae"
+          >
+            <span>
+              Your Rewards:
+            </span>
+            <span>
+              222 
+              SHTFI
+            </span>
+          </div>
+          <button
+            className="Button__StyledButton-sc-9q0s2c-0 dawuiH FarmSelectSection__StyledFarmActionButton-sc-14ul1m3-10 bMePyt"
+            color="blue"
+            id="claim-SQUID-SHTFI"
+            size="med"
+          >
+            Claim
+          </button>
+        </div>
+        <div
+          className="FarmSelectSection__StyledFarmAction-sc-14ul1m3-8 cbBkSK"
+        >
+          <button
+            className="Button__StyledButton-sc-9q0s2c-0 dawuiH FarmSelectSection__StyledFarmActionButton-sc-14ul1m3-10 bMePyt"
+            color="blue"
+            id="stake-SQUID-SHTFI"
+            size="med"
+          >
+            Stake
+          </button>
+        </div>
+      </div>
+    </div>
   </section>
 </div>
 `;
@@ -200,10 +557,10 @@ exports[`renders homepage unchanged 1`] = `
     className="pages__StyledMain-sc-tddur0-1"
   >
     <header
-      className="Header__StyledHeader-sc-1w0zh9p-0 hXvtZN"
+      className="Header__StyledHeader-sc-k859ru-0 iRENco"
     >
       <picture
-        className="Header__StyledHeaderLogo-sc-1w0zh9p-1 jQvDAY"
+        className="Header__StyledHeaderLogo-sc-k859ru-1 iRvyht"
       >
         <div
           style={
@@ -304,7 +661,7 @@ exports[`renders homepage unchanged 1`] = `
         </div>
       </picture>
       <div
-        className="Header__StyledHeaderContent-sc-1w0zh9p-2 iVZWqN"
+        className="Header__StyledHeaderContent-sc-k859ru-2 bonaFM"
       >
         <h1>
           SHTFI
@@ -313,10 +670,10 @@ exports[`renders homepage unchanged 1`] = `
           Open Source Yield Farming and Defi Protocol
         </p>
         <div
-          className="SocialLinks__StyledSocialLinks-sc-194g43x-0 knflLb"
+          className="SocialLinks__StyledSocialLinks-sc-1ts488y-0 fxCZUI"
         >
           <a
-            className="SocialLinks__StyledSocialLink-sc-194g43x-1 hdBtEy"
+            className="SocialLinks__StyledSocialLink-sc-1ts488y-1 ikQGNt"
             href="https://github.com/SHTFI"
             rel="noopener noreferrer"
             target="_blank"
@@ -343,7 +700,7 @@ exports[`renders homepage unchanged 1`] = `
             </svg>
           </a>
           <a
-            className="SocialLinks__StyledSocialLink-sc-194g43x-1 hdBtEy"
+            className="SocialLinks__StyledSocialLink-sc-1ts488y-1 ikQGNt"
             href="https://twitter.com/shtfio"
             rel="noopener noreferrer"
             target="_blank"
@@ -373,7 +730,7 @@ exports[`renders homepage unchanged 1`] = `
       </div>
     </header>
     <section
-      className="pages__StyledIntroSection-sc-tddur0-2 iAyuUi"
+      className="IntroSection__StyledIntroSection-sc-1e6ymzb-0 hQoFC"
       id="intro"
     >
       <h2
@@ -386,11 +743,11 @@ exports[`renders homepage unchanged 1`] = `
       </p>
     </section>
     <section
-      className="Tokenomics__StyledTokenomics-sc-18vpcyl-0 eytbXU"
+      className="Tokenomics__StyledTokenomics-sc-12yavak-0 gNAiJh"
       id="tokenomics"
     >
       <div
-        className="Tokenomics__StyledTokenomicsContent-sc-18vpcyl-1 bnFsWd"
+        className="Tokenomics__StyledTokenomicsContent-sc-12yavak-1 hNQFxb"
       >
         <h2
           className="Heading__H2-sc-1n3vzci-1 eSuOyG"
@@ -398,7 +755,7 @@ exports[`renders homepage unchanged 1`] = `
           Tokenomics
         </h2>
         <div
-          className="Tokenomics__StyledTokenomicsData-sc-18vpcyl-2 byqPPq"
+          className="Tokenomics__StyledTokenomicsData-sc-12yavak-2 bRGlBE"
           data-large="true"
         >
           <span>
@@ -409,7 +766,7 @@ exports[`renders homepage unchanged 1`] = `
           </h4>
         </div>
         <div
-          className="Tokenomics__StyledTokenomicsData-sc-18vpcyl-2 byqPPq"
+          className="Tokenomics__StyledTokenomicsData-sc-12yavak-2 bRGlBE"
           data-large="true"
         >
           <span>
@@ -420,7 +777,7 @@ exports[`renders homepage unchanged 1`] = `
           </h4>
         </div>
         <div
-          className="Tokenomics__StyledTokenomicsData-sc-18vpcyl-2 byqPPq"
+          className="Tokenomics__StyledTokenomicsData-sc-12yavak-2 bRGlBE"
           data-large="true"
         >
           <span>
@@ -431,7 +788,7 @@ exports[`renders homepage unchanged 1`] = `
           </h4>
         </div>
         <div
-          className="Tokenomics__StyledTokenomicsData-sc-18vpcyl-2 byqPPq"
+          className="Tokenomics__StyledTokenomicsData-sc-12yavak-2 bRGlBE"
           data-large="true"
         >
           <span>
@@ -442,7 +799,7 @@ exports[`renders homepage unchanged 1`] = `
           </h4>
         </div>
         <div
-          className="Tokenomics__StyledTokenomicsData-sc-18vpcyl-2 byqPPq"
+          className="Tokenomics__StyledTokenomicsData-sc-12yavak-2 bRGlBE"
           data-large="true"
         >
           <span>
@@ -455,17 +812,17 @@ exports[`renders homepage unchanged 1`] = `
       </div>
     </section>
     <section
-      className="pages__StyledFeaturesSection-sc-tddur0-3 didgxB"
+      className="FeaturesSection__StyledFeaturesSection-sc-1rxht1h-0 ikjAoG"
     >
       <div
-        className="pages__StyledCardSection-sc-tddur0-4 gcyTMG"
+        className="FeaturesSection__StyledCardSection-sc-1rxht1h-1 gMSnZs"
         id="features"
       >
         <div
-          className="Card__StyledCard-sc-1tba087-0 guxqpd"
+          className="Card__StyledCard-sc-19xhe45-0 bfdsLg"
         >
           <div
-            className="pages__StyledCardContent-sc-tddur0-5 dOtaYP"
+            className="FeaturesSection__StyledCardContent-sc-1rxht1h-2 hdTAGf"
           >
             <div
               style={
@@ -625,7 +982,7 @@ exports[`renders homepage unchanged 1`] = `
         </div>
       </div>
       <div
-        className="pages__StyledSliderSection-sc-tddur0-6 jsjLuH"
+        className="FeaturesSection__StyledSliderSection-sc-1rxht1h-3 dxKhux"
         id="about"
       >
         <h2
