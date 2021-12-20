@@ -1,6 +1,6 @@
 import { render, screen, MatcherFunction } from "utils/testing/testHelpers";
 import { FarmSelectSection } from "components";
-import { FarmToken } from "types";
+import { FarmingPair, FarmToken } from "types";
 
 const TEST_ID = "farmSelect";
 const STAKED_TOKEN: FarmToken = {
@@ -19,42 +19,24 @@ const REWARD_TOKEN: FarmToken = {
   contract: "0x123123",
   description: "description",
 };
-
+const PAIRS: FarmingPair[] = [
+  { stakedToken: STAKED_TOKEN, rewardToken: REWARD_TOKEN },
+];
 describe("<FarmSelectSection />", () => {
   it("renders", () => {
-    render(
-      <FarmSelectSection
-        data-testid={TEST_ID}
-        stakedToken={STAKED_TOKEN}
-        rewardToken={REWARD_TOKEN}
-      />
-    );
+    render(<FarmSelectSection data-testid={TEST_ID} farms={PAIRS} />);
     const elem = screen.getByTestId(TEST_ID);
     expect(elem).toBeInTheDocument();
   });
-
   it("renders the logo of each token", () => {
-    render(
-      <FarmSelectSection
-        data-testid={TEST_ID}
-        stakedToken={STAKED_TOKEN}
-        rewardToken={REWARD_TOKEN}
-      />
-    );
+    render(<FarmSelectSection data-testid={TEST_ID} farms={PAIRS} />);
     const stakedLogo = screen.getByAltText(`${STAKED_TOKEN.name} icon`);
     expect(stakedLogo).toBeInTheDocument();
     const rewardLogo = screen.getByAltText(`${REWARD_TOKEN.name} icon`);
     expect(rewardLogo).toBeInTheDocument();
   });
-
   it("has meta data saying what to stake and what you get in reward", () => {
-    render(
-      <FarmSelectSection
-        data-testid={TEST_ID}
-        stakedToken={STAKED_TOKEN}
-        rewardToken={REWARD_TOKEN}
-      />
-    );
+    render(<FarmSelectSection data-testid={TEST_ID} farms={PAIRS} />);
     const getStakedText: MatcherFunction = (content, element) => {
       const stakedText = "Stake:";
       const isStakeParent = content === stakedText && element?.tagName === "P";
@@ -83,15 +65,8 @@ describe("<FarmSelectSection />", () => {
     const rewardText = screen.getByText(getRewardText);
     expect(rewardText).toBeInTheDocument();
   });
-
   it("says how much of the staked token is in the contract", () => {
-    render(
-      <FarmSelectSection
-        data-testid={TEST_ID}
-        stakedToken={STAKED_TOKEN}
-        rewardToken={REWARD_TOKEN}
-      />
-    );
+    render(<FarmSelectSection data-testid={TEST_ID} farms={PAIRS} />);
     const getRewardText: MatcherFunction = (content, element) => {
       const contentIsCorrect = content.includes(
         `Total ${STAKED_TOKEN.ticker}:`
@@ -104,13 +79,7 @@ describe("<FarmSelectSection />", () => {
     expect(elem).toBeInTheDocument();
   });
   it("says how much reward token is issued per block", () => {
-    render(
-      <FarmSelectSection
-        data-testid={TEST_ID}
-        stakedToken={STAKED_TOKEN}
-        rewardToken={REWARD_TOKEN}
-      />
-    );
+    render(<FarmSelectSection data-testid={TEST_ID} farms={PAIRS} />);
     const getBlockRewardText: MatcherFunction = (content, element) => {
       const contentIsCorrect = content.includes(
         `${REWARD_TOKEN.ticker} per block:`
@@ -122,15 +91,8 @@ describe("<FarmSelectSection />", () => {
     const elem = screen.getByText(getBlockRewardText);
     expect(elem).toBeInTheDocument();
   });
-
   it("says reward per staked token", () => {
-    render(
-      <FarmSelectSection
-        data-testid={TEST_ID}
-        stakedToken={STAKED_TOKEN}
-        rewardToken={REWARD_TOKEN}
-      />
-    );
+    render(<FarmSelectSection data-testid={TEST_ID} farms={PAIRS} />);
     const getBlockRewardText: MatcherFunction = (content, element) => {
       const contentIsCorrect = content.includes(
         `${REWARD_TOKEN.ticker} per ${STAKED_TOKEN.ticker}:`
@@ -143,13 +105,7 @@ describe("<FarmSelectSection />", () => {
     expect(elem).toBeInTheDocument();
   });
   it("shows user their stake", () => {
-    render(
-      <FarmSelectSection
-        data-testid={TEST_ID}
-        stakedToken={STAKED_TOKEN}
-        rewardToken={REWARD_TOKEN}
-      />
-    );
+    render(<FarmSelectSection data-testid={TEST_ID} farms={PAIRS} />);
     const getUserStakeText: MatcherFunction = (content, element) => {
       const contentIsCorrect = content === `Your Stake:`;
       const sibling = element?.nextElementSibling;
@@ -164,13 +120,7 @@ describe("<FarmSelectSection />", () => {
     expect(elem).toBeInTheDocument();
   });
   it("shows user their rewards", () => {
-    render(
-      <FarmSelectSection
-        data-testid={TEST_ID}
-        stakedToken={STAKED_TOKEN}
-        rewardToken={REWARD_TOKEN}
-      />
-    );
+    render(<FarmSelectSection data-testid={TEST_ID} farms={PAIRS} />);
     const getUserRewardText: MatcherFunction = (content, element) => {
       const contentIsCorrect = content === `Your Rewards:`;
       const sibling = element?.nextElementSibling;
@@ -184,14 +134,9 @@ describe("<FarmSelectSection />", () => {
     const elem = screen.getByText(getUserRewardText);
     expect(elem).toBeInTheDocument();
   });
-
   it("has a stake, unstake and claim button", () => {
     const { baseElement } = render(
-      <FarmSelectSection
-        data-testid={TEST_ID}
-        stakedToken={STAKED_TOKEN}
-        rewardToken={REWARD_TOKEN}
-      />
+      <FarmSelectSection data-testid={TEST_ID} farms={PAIRS} />
     );
     const stakeButton = baseElement.querySelector(
       `#stake-${STAKED_TOKEN.ticker}-${REWARD_TOKEN.ticker}`
