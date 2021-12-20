@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TokenomicsProps } from "components/Base/types";
+import { TokenomicsProps } from "components/ShtfiUi/types";
 import { Heading } from "components/ShtfiUi";
 
 const Tokenomics: React.FC<TokenomicsProps> = ({
@@ -83,7 +83,7 @@ const StyledTokenomics = styled.section<{ color?: string }>`
         position: absolute;
         height: 50%;
         width: 75%;
-        background: url("assets/icons/plunger.svg");
+        background: url("assets/icons/shtfi/plunger.svg");
         background-repeat: no-repeat;
         background-position-x: right;
         background-position-y: center;

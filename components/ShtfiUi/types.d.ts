@@ -103,3 +103,53 @@ export interface TextIconProps extends React.HTMLAttributes<HTMLDivElement> {
   copy: string;
   icon: string;
 }
+
+export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
+  button?: boolean;
+}
+
+import { Colors, CoinDistribution } from "types";
+
+export interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  title: string;
+  subTitle?: string;
+  logo?: string;
+  logoAlt?: string;
+  socialIcons?: boolean;
+}
+
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  padding?: string;
+  margin?: string;
+  maxWidth?: string;
+  maxHeight?: string;
+  minHeight?: string;
+  minWidth?: string;
+  background?: string;
+}
+
+export interface TokenomicsProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    CoinDistribution {
+  color?: Colors;
+  showPercent?: (keyof CoinDistribution)[];
+  showLarge?: (keyof CoinDistribution)[];
+}
+
+export interface SocialLinksProps extends React.HTMLAttributes<HTMLDivElement> {
+  align?: "left" | "center" | "right";
+}
+
+interface MetaProps {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  type?: string;
+  name?: string;
+  card?: string;
+  twitterSite?: string;
+  twitterCreator?: string;
+  robots?: string;
+  favicon?: string;
+}

@@ -36,7 +36,7 @@ describe("<Header />", () => {
     expect(element).toBeInTheDocument();
   });
   it("has logo provided", () => {
-    const { baseElement, getByTestId } = render(
+    const { baseElement } = render(
       <Header
         data-testid="header"
         title="SHTFI"
@@ -46,7 +46,7 @@ describe("<Header />", () => {
     );
     const element = screen.getByTestId("header");
     expect(element).toBeInTheDocument();
-    const img = baseElement.querySelector('img[src="/assets/images/logo.svg"]');
+    const img = baseElement.querySelector("img");
     expect(img).toBeInTheDocument();
   });
   it("has the logo alt text provided", () => {

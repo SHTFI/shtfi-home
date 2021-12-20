@@ -1,4 +1,4 @@
-import { CardProps } from "components/Base/types";
+import { CardProps } from "components/ShtfiUi/types";
 import styled from "styled-components";
 
 const Card: React.FC<CardProps> = ({ children, ...rest }) => {

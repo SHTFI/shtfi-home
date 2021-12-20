@@ -36,3 +36,26 @@ type SocialLink = {
   profileUrl: string;
   profileName: string;
 };
+
+type FarmToken = {
+  icon: string;
+  name: string;
+  ticker: string;
+  description: string;
+  url: string;
+  contract: string;
+};
+
+interface FarmingPair {
+  stakedToken: FarmToken;
+  rewardToken: FarmToken;
+}
+
+interface FarmSectionProps extends React.HTMLAttributes<HTMLDivElement> {
+  farms: FarmingPair[];
+}
+
+interface FarmCardProps extends React.HTMLAttributes<HTMLDivElement> {
+  stakedToken: FarmToken;
+  rewardToken: FarmToken;
+}

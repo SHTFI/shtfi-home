@@ -136,7 +136,7 @@ const StyledMobileDrawer = styled.div`
       a {
         position: relative;
         display: flex;
-        width: 100%;
+        width: calc(100% - calc(var(--med-space) * 2));
         align-items: center;
         padding: var(--small-space) var(--med-space);
 

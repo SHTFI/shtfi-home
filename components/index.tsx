@@ -1,2 +1,3 @@
 export * from "components/ShtfiUi";
-export * from "components/Base";
+export * from "components/Home";
+export * from "components/Farm";

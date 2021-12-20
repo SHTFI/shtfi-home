@@ -52,9 +52,6 @@ describe("<NavBar />", () => {
     expect(burgerButton).toBeInTheDocument();
     const icon = burgerButton?.querySelector("img");
     expect(icon).toBeInTheDocument();
-    expect(icon?.height).toBe(10);
-    expect(icon?.width).toBe(10);
-    expect(icon?.alt).toBe("test-image");
   });
 
   it("has logo if provided", () => {
@@ -70,13 +67,8 @@ describe("<NavBar />", () => {
     );
     const nav = screen.getByTestId("nav");
     expect(nav).toBeInTheDocument();
-    const logo = nav?.querySelector(
-      'img[src="/img/logo-test.jpg"]'
-    ) as HTMLImageElement;
+    const logo = nav?.querySelector("img") as HTMLImageElement;
     expect(logo).toBeInTheDocument();
-    expect(logo?.height).toBe(10);
-    expect(logo?.width).toBe(10);
-    expect(logo?.alt).toBe("image");
   });
 
   it("has logo text if provided", () => {
