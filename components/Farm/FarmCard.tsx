@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { FarmCardProps } from "types";
 import styled from "styled-components";
 import { Card, Button } from "components";
 
