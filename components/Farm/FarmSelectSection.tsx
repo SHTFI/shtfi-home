@@ -1,16 +1,20 @@
-import { Input, Card, Button } from "components";
+import { Input } from "components";
+import { useWeb3 } from "hooks";
 import styled from "styled-components";
-import { FarmSectionProps } from "types";
 import FarmCard from "./FarmCard";
 
 const FarmSelectSection: React.FC<FarmSectionProps> = ({ farms, ...rest }) => {
+  const { active, library, account } = useWeb3();
+  if (active && account) {
+    console.log(library?.getBlockNumber());
+  }
   return (
     <StyledFarmSection {...rest}>
       <Input placeholder="Search for coin" button={true} />
       <StyledFarmCards>
-        {farms.map(({ stakedToken, rewardToken }) => (
+        {farms.map(({ stakedToken, rewardToken }, i) => (
           <FarmCard
-            key={`${stakedToken.ticker}-${rewardToken.ticker}-card`}
+            key={`${stakedToken.ticker}-${rewardToken.ticker}-card-${i}`}
             stakedToken={stakedToken}
             rewardToken={rewardToken}
           />

@@ -1,5 +1,3 @@
-import { SocialLinksData } from "types";
-
 export const socialLinksData: SocialLinksData = {
   github: {
     profileName: "SHTFI",
