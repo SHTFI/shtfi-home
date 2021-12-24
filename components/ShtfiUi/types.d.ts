@@ -108,8 +108,6 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   button?: boolean;
 }
 
-import { Colors, CoinDistribution } from "types";
-
 export interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   subTitle?: string;
@@ -140,7 +138,7 @@ export interface SocialLinksProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: "left" | "center" | "right";
 }
 
-interface MetaProps {
+export interface MetaProps {
   title: string;
   description: string;
   image: string;
