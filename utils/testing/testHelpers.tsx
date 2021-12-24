@@ -5,6 +5,7 @@ import request from "supertest";
 import { NextApiHandler } from "next";
 import { apiResolver } from "next/dist/server/api-utils";
 import { createServer } from "http";
+import { Web3Providers } from "context";
 
 // Wrap our tests in a component which adds our providers
 const TestWrapper: React.FC = ({ children }) => {
@@ -14,6 +15,14 @@ const TestWrapper: React.FC = ({ children }) => {
 // Use the custom render function to add our wrapper to the tested component
 const customRender = (ui: any, options?: any) => {
   return render(ui, { wrapper: TestWrapper, ...options });
+};
+
+const TestWeb3Wrapper: React.FC = ({ children }) => {
+  return <Web3Providers>{children}</Web3Providers>;
+};
+// Export a render method with the web3 wrapper
+const customWeb3Render = (ui: any, options?: any) => {
+  return render(ui, { wrapper: TestWeb3Wrapper, ...options });
 };
 
 /**
@@ -90,4 +99,4 @@ export const getAllMeta = (
 };
 
 export * from "@testing-library/react";
-export { customRender as render };
+export { customRender as render, customWeb3Render as web3Render };
