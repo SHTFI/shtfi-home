@@ -12,6 +12,7 @@ import { navLinks } from "utils";
 import GlobalStyle from "styles/globals";
 import GlobalFonts from "styles/fonts";
 import Head from "next/head";
+import { Web3Providers } from "context";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
@@ -30,7 +31,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <GlobalStyle />
       <GlobalFonts />
       <NavBar linkList={navLinks} logo="/assets/icons/shtfi/shtfi.svg" />
-      <Component {...pageProps} />
+      <Web3Providers>
+        <Component {...pageProps} />
+      </Web3Providers>
       <Footer>
         <SocialLinks align="center" />
         <FooterTile>
