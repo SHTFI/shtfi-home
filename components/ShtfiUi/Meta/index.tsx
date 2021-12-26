@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { socialLinksData } from "utils";
+import { socialLinksData } from "config";
 import { MetaProps } from "../types";
 
 const Meta: React.FC<MetaProps> = ({
