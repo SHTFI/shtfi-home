@@ -8,7 +8,7 @@ import {
   Modal,
   SocialLinks,
 } from "components";
-import { navLinks } from "utils";
+import { navLinks } from "config";
 import GlobalStyle from "styles/globals";
 import GlobalFonts from "styles/fonts";
 import Head from "next/head";

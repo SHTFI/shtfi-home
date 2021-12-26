@@ -37,6 +37,14 @@ type SocialLink = {
   profileName: string;
 };
 
+type NavLink = {
+  href: string;
+  title: string;
+  label: string;
+  icon?: string;
+  iconAlt?: string;
+};
+
 type FarmToken = {
   icon: string;
   name: string;

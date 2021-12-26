@@ -1,6 +1,4 @@
-import { NavLinkType } from "@/components/ShtfiUi/types";
-
-export const navLinks: NavLinkType[] = [
+export const navLinks: NavLink[] = [
   {
     href: "#intro",
     title: "Introduction to SHTFI",

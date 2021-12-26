@@ -8,7 +8,7 @@ import {
   FarmSelectSection,
   Meta,
 } from "components";
-import { SHTFI_FARMS } from "utils";
+import { SHTFI_FARMS } from "config";
 
 const Farm: NextPage = () => {
   return (
