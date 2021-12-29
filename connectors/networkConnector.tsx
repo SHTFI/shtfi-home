@@ -12,7 +12,7 @@ export class RequestError extends Error {
 }
 
 // Make a class to use as our RPC provider
-class MiniRpcProvider implements AsyncSendable {
+export class MiniRpcProvider implements AsyncSendable {
   // Set out publicly visible vars
   public readonly isMetaMask?: boolean = false;
   public readonly chainId: number;
