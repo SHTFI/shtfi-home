@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useWeb3React } from "@web3-react/core";
+import { useWeb3 } from "hooks";
 import { injectedWeb3 } from "context";
 /**
  * Hook to listen to the web3 instance and react to events it emits
@@ -7,7 +7,7 @@ import { injectedWeb3 } from "context";
 
 const useInactiveListener = (suppress: boolean = false) => {
   // Get our lib methods
-  const { error, active, activate } = useWeb3React();
+  const { error, active, activate } = useWeb3();
   // Use effect to do manage updates to the instance
   useEffect(() => {
     // Get the ethereum instance if the window has one

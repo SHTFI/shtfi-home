@@ -1,8 +1,47 @@
+import { useEffect } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import { Card, Button } from "components";
+import { useTokenContract, useWeb3 } from "hooks";
+import { Contract } from "@ethersproject/contracts";
 
 const FarmCard: React.FC<FarmCardProps> = ({ stakedToken, rewardToken }) => {
+  const {
+    tokenContract: stakedTokenContract,
+    setActiveTokenContract: setStakedTokenContract,
+  } = useTokenContract();
+  const {
+    tokenContract: rewardTokenContract,
+    setActiveTokenContract: setRewardTokenContract,
+  } = useTokenContract();
+
+  useEffect(() => {
+    if (stakedToken.contract[97] !== stakedTokenContract?.address) {
+      try {
+        setStakedTokenContract(stakedToken.contract[97]);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+    if (rewardToken.contract[97] !== rewardTokenContract?.address) {
+      try {
+        setRewardTokenContract(rewardToken.contract[97]);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+  }, [
+    stakedToken,
+    rewardToken,
+    setStakedTokenContract,
+    stakedTokenContract?.address,
+    setRewardTokenContract,
+    rewardTokenContract?.address,
+  ]);
+
+  console.log(stakedTokenContract?.address);
+  console.log(rewardTokenContract?.address);
+
   return (
     <StyledFarmCard>
       <StyledFarmHeader>
