@@ -1,46 +1,24 @@
-import { useEffect } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import { Card, Button } from "components";
-import { useTokenContract, useWeb3 } from "hooks";
-import { Contract } from "@ethersproject/contracts";
+import { useFarmerInfo, useFarmInfo } from "hooks";
+import { useWeb3 } from "hooks";
 
-const FarmCard: React.FC<FarmCardProps> = ({ stakedToken, rewardToken }) => {
-  const {
-    tokenContract: stakedTokenContract,
-    setActiveTokenContract: setStakedTokenContract,
-  } = useTokenContract();
-  const {
-    tokenContract: rewardTokenContract,
-    setActiveTokenContract: setRewardTokenContract,
-  } = useTokenContract();
+const FarmCard: React.FC<FarmCardProps> = ({
+  stakedToken,
+  rewardToken,
+  farmAddress,
+}) => {
+  // Get account from web3 hook
+  const { account } = useWeb3();
+  const { farmInfo } = useFarmInfo(farmAddress, stakedToken.contract[97]);
+  const { farmerInfo } = useFarmerInfo(
+    account,
+    farmInfo?.address,
+    farmInfo?.id
+  );
 
-  useEffect(() => {
-    if (stakedToken.contract[97] !== stakedTokenContract?.address) {
-      try {
-        setStakedTokenContract(stakedToken.contract[97]);
-      } catch (e) {
-        console.warn(e);
-      }
-    }
-    if (rewardToken.contract[97] !== rewardTokenContract?.address) {
-      try {
-        setRewardTokenContract(rewardToken.contract[97]);
-      } catch (e) {
-        console.warn(e);
-      }
-    }
-  }, [
-    stakedToken,
-    rewardToken,
-    setStakedTokenContract,
-    stakedTokenContract?.address,
-    setRewardTokenContract,
-    rewardTokenContract?.address,
-  ]);
-
-  console.log(stakedTokenContract?.address);
-  console.log(rewardTokenContract?.address);
+  if (!!!farmInfo || !!!farmerInfo) return null;
 
   return (
     <StyledFarmCard>
@@ -74,21 +52,24 @@ const FarmCard: React.FC<FarmCardProps> = ({ stakedToken, rewardToken }) => {
       </StyledFarmHeader>
       <StyledFarmInfo>
         <p>
-          Total {stakedToken.ticker}: <span>123,123</span>
+          Total {stakedToken.ticker}: <span>{farmInfo?.stakedBalance}</span>
         </p>
         <p>
-          {rewardToken.ticker} per block: <span>0.02</span>
+          {rewardToken.ticker} per block:{" "}
+          <span>~{farmInfo?.rewardPerBlock}</span>
         </p>
         <p>
           {rewardToken.ticker} per {stakedToken.ticker}:{" "}
-          <span>0.00000001234</span>
+          <span>~{farmInfo.rewardPerStake}</span>
         </p>
       </StyledFarmInfo>
       <StyledFarmActions>
         <StyledFarmAction>
           <StyledFarmActionInfo>
             <span>Your Stake:</span>
-            <span>222222 {stakedToken.ticker}</span>
+            <span>
+              {farmerInfo.stakedBalance} {stakedToken.ticker}
+            </span>
           </StyledFarmActionInfo>
           <StyledFarmActionButton
             id={`unstake-${stakedToken.ticker}-${rewardToken.ticker}`}
@@ -100,7 +81,9 @@ const FarmCard: React.FC<FarmCardProps> = ({ stakedToken, rewardToken }) => {
         <StyledFarmAction>
           <StyledFarmActionInfo>
             <span>Your Rewards:</span>
-            <span>222 {rewardToken.ticker}</span>
+            <span>
+              ~{farmerInfo.pendingRewards} {rewardToken.ticker}
+            </span>
           </StyledFarmActionInfo>
           <StyledFarmActionButton
             id={`claim-${stakedToken.ticker}-${rewardToken.ticker}`}
