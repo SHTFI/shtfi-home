@@ -24,7 +24,7 @@ export const STAKED_TOKEN_1: FarmToken = {
 };
 export const PAIRS: FarmingPairData[] = [
   {
-    chain: "BSC",
+    chain: 97,
     contract: { 56: "", 97: "" },
     stakedToken: {
       ...STAKED_TOKEN,
@@ -34,7 +34,7 @@ export const PAIRS: FarmingPairData[] = [
     },
   },
   {
-    chain: "BSC",
+    chain: 97,
     contract: { 56: "", 97: "" },
     stakedToken: {
       ...STAKED_TOKEN_1,
