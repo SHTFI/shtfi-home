@@ -68,6 +68,7 @@ interface FarmSectionProps extends React.HTMLAttributes<HTMLDivElement> {
 interface FarmCardProps extends React.HTMLAttributes<HTMLDivElement> {
   stakedToken: FarmToken;
   rewardToken: FarmToken;
+  farmAddress: string;
 }
 
 interface Contract {
@@ -75,7 +76,7 @@ interface Contract {
   97: string;
 }
 
-type Chain = "BSC";
+type Chain = 97;
 
 // taken from ethers.js, compatible interface with web3 provider
 type AsyncSendable = {
@@ -116,3 +117,27 @@ type NetworkConnectorArguments = {
 };
 
 declare module "jest-next-dynamic";
+
+interface FarmerInfo {
+  userAddress: string | null | undefined;
+  farmAddress: string | null | undefined;
+  farmId: number | string | null | undefined;
+  pendingRewards: number;
+  stakedBalance: number;
+  claimedRewards: number;
+  lastClaimBlock: number;
+  totalRewards: number;
+}
+
+interface FarmInfo {
+  address: string | null | undefined;
+  stakedAddress: string | null | undefined;
+  rewardPerStake: number;
+  stakedBalance: number;
+  rewardPerBlock: number;
+  allocPoint: number;
+  rewardAlloc: number;
+  startBlock: number;
+  lastRewardBlock: number;
+  id: number | string | null | undefined;
+}
