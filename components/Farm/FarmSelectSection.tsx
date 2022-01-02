@@ -1,13 +1,8 @@
 import { Input } from "components";
-import { useWeb3 } from "hooks";
 import styled from "styled-components";
 import FarmCard from "./FarmCard";
 
 const FarmSelectSection: React.FC<FarmSectionProps> = ({ farms, ...rest }) => {
-  const { active, library, account } = useWeb3();
-  if (active && account) {
-    console.log(library?.getBlockNumber());
-  }
   return (
     <StyledFarmSection {...rest}>
       <Input placeholder="Search for coin" button={true} />
@@ -17,6 +12,7 @@ const FarmSelectSection: React.FC<FarmSectionProps> = ({ farms, ...rest }) => {
             key={`${stakedToken.ticker}-${rewardToken.ticker}-card-${i}`}
             stakedToken={stakedToken}
             rewardToken={rewardToken}
+            farmAddress={farms[0].contract[97]}
           />
         ))}
       </StyledFarmCards>

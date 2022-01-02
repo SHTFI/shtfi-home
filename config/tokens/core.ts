@@ -1,7 +1,7 @@
 export const core: FarmToken[] = [
   {
     ticker: "BTC",
-    icon: "/assets/images/tokens/squid-75-75.png",
+    icon: "/assets/images/tokens/bitcoin-125-125.png",
     name: "Bitcoin",
     url: "https://bitcoin.com",
     contract: { 56: "", 97: "0x6ce8dA28E2f864420840cF74474eFf5fD80E65B8" },

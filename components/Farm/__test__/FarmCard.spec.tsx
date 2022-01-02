@@ -6,7 +6,7 @@ import {
 } from "utils/testing/testHelpers";
 import { FarmCard } from "components";
 import preloadAll from "jest-next-dynamic";
-import { STAKED_TOKEN, REWARD_TOKEN } from "./data";
+import { STAKED_TOKEN, REWARD_TOKEN, PAIRS } from "./data";
 
 const TEST_ID = "farmSelect";
 
@@ -20,6 +20,7 @@ describe("<FarmCard />", () => {
         data-testid={TEST_ID}
         stakedToken={STAKED_TOKEN}
         rewardToken={REWARD_TOKEN}
+        farmAddress={PAIRS[0].contract[97]}
       />
     );
     await waitFor(() => {
@@ -37,6 +38,7 @@ describe("<FarmCard />", () => {
         data-testid={TEST_ID}
         stakedToken={STAKED_TOKEN}
         rewardToken={REWARD_TOKEN}
+        farmAddress={PAIRS[0].contract[97]}
       />
     );
     const getStakedText: MatcherFunction = (content, element) => {
@@ -73,6 +75,7 @@ describe("<FarmCard />", () => {
         data-testid={TEST_ID}
         stakedToken={STAKED_TOKEN}
         rewardToken={REWARD_TOKEN}
+        farmAddress={PAIRS[0].contract[97]}
       />
     );
     const getRewardText: MatcherFunction = (content, element) => {
@@ -92,6 +95,7 @@ describe("<FarmCard />", () => {
         data-testid={TEST_ID}
         stakedToken={STAKED_TOKEN}
         rewardToken={REWARD_TOKEN}
+        farmAddress={PAIRS[0].contract[97]}
       />
     );
     const getBlockRewardText: MatcherFunction = (content, element) => {
@@ -99,7 +103,7 @@ describe("<FarmCard />", () => {
         `${REWARD_TOKEN.ticker} per block:`
       );
       const childSpan = element?.querySelector("span");
-      const spanIsValue = /^[0-9,\.]+$/.test(childSpan?.textContent as string);
+      const spanIsValue = /^~[0-9,\.]+$/.test(childSpan?.textContent as string);
       return contentIsCorrect && spanIsValue;
     };
     const elem = screen.getByText(getBlockRewardText);
@@ -111,6 +115,7 @@ describe("<FarmCard />", () => {
         data-testid={TEST_ID}
         stakedToken={STAKED_TOKEN}
         rewardToken={REWARD_TOKEN}
+        farmAddress={PAIRS[0].contract[97]}
       />
     );
     const getBlockRewardText: MatcherFunction = (content, element) => {
@@ -118,7 +123,7 @@ describe("<FarmCard />", () => {
         `${REWARD_TOKEN.ticker} per ${STAKED_TOKEN.ticker}:`
       );
       const childSpan = element?.querySelector("span");
-      const spanIsValue = /^[0-9,\.]+$/.test(childSpan?.textContent as string);
+      const spanIsValue = /^~[0-9,\.]+$/.test(childSpan?.textContent as string);
       return contentIsCorrect && spanIsValue;
     };
     const elem = screen.getByText(getBlockRewardText);
@@ -130,6 +135,7 @@ describe("<FarmCard />", () => {
         data-testid={TEST_ID}
         stakedToken={STAKED_TOKEN}
         rewardToken={REWARD_TOKEN}
+        farmAddress={PAIRS[0].contract[97]}
       />
     );
     const getUserStakeText: MatcherFunction = (content, element) => {
@@ -151,6 +157,7 @@ describe("<FarmCard />", () => {
         data-testid={TEST_ID}
         stakedToken={STAKED_TOKEN}
         rewardToken={REWARD_TOKEN}
+        farmAddress={PAIRS[0].contract[97]}
       />
     );
     const getUserRewardText: MatcherFunction = (content, element) => {
@@ -158,7 +165,7 @@ describe("<FarmCard />", () => {
       const sibling = element?.nextElementSibling;
       const siblingIsSpan = sibling?.tagName === "SPAN";
       if (!!!siblingIsSpan) return false;
-      const siblingIsValue = /^[0-9,\.]+ [A-Z]+\w?$/gi.test(
+      const siblingIsValue = /^~[0-9,\.]+ [A-Z]+\w?$/gi.test(
         sibling?.textContent as string
       );
       return contentIsCorrect && siblingIsValue;
@@ -172,6 +179,7 @@ describe("<FarmCard />", () => {
         data-testid={TEST_ID}
         stakedToken={STAKED_TOKEN}
         rewardToken={REWARD_TOKEN}
+        farmAddress={PAIRS[0].contract[97]}
       />
     );
     const stakeButton = baseElement.querySelector(
