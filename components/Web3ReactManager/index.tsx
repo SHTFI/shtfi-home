@@ -1,35 +1,29 @@
 import { useEffect } from "react";
-import { useWeb3React } from "@web3-react/core";
-import { networkWeb3 } from "context";
+import { injectedWeb3, networkWeb3 } from "context";
 import { useEagerConnect, useInactiveListener } from "hooks";
+import { useWeb3 } from "hooks";
 /**
  * Functional component to handle web3 connections
  */
 
 const Web3ReactManager: React.FC = ({ children }) => {
-  // Get the status of our injected connector
-  const { active: injectedActive } = useWeb3React();
-  // Get the status of the network connector
-  const {
-    activate: activateNetwork,
-    active: networkActive,
-    error: networkError,
-  } = useWeb3React("Network");
-  // Try and connect using the eager connect hook
+  // Try to connect to web3 wallet straight away
   const triedEager = useEagerConnect();
-  // Use effect to try and connect to network when injected is not available for whatever reasib
+  // Try to connect eagerly
+  const { active, library, activate, error } = useWeb3();
+  // Use effect to manage connection changes
   useEffect(() => {
-    // If we have tried eager and injected isn't active then activate network
-    if (triedEager && !networkActive && !networkError && !injectedActive) {
-      activateNetwork(networkWeb3);
+    // Has eager finished connecting?
+    if (!triedEager) return;
+    // Should we try connect to network?
+    if (!active && !library?.provider.isMetaMask) {
+      // Activate it
+      activate(networkWeb3, undefined, true);
+    } else if (!active && library?.provider.isMetaMask) {
+      // Otherwise activate injected
+      activate(injectedWeb3, undefined, true);
     }
-  }, [
-    triedEager,
-    networkActive,
-    injectedActive,
-    networkError,
-    activateNetwork,
-  ]);
+  }, [triedEager, active, library?.provider.isMetaMask, activate]);
 
   // If tried eager is falsy then add our inactive listener
   useInactiveListener(!triedEager);
@@ -38,14 +32,14 @@ const Web3ReactManager: React.FC = ({ children }) => {
   if (!triedEager) return null;
 
   // If we don't have an account context and there's a network error something has gone wrong
-  if (!injectedActive && networkError) {
+  if (!active && error) {
     console.info("Something went tits up with web3");
-    console.error(networkError);
+    console.error(error);
     return null;
   }
 
   // If neither injected or network is active we must be loading
-  if (!injectedActive && !networkActive) {
+  if (!active) {
     console.info("Loading web3");
     return null;
   }
