@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { Card, Button } from "components";
 import { useFarmerInfo, useFarmInfo } from "hooks";
 import { useWeb3 } from "hooks";
+import { isMetaMaskInstalled } from "utils";
+import { injectedWeb3 } from "context";
+import { FarmCardProps } from "types";
 
 const FarmCard: React.FC<FarmCardProps> = ({
   stakedToken,
@@ -10,7 +13,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
   farmAddress,
 }) => {
   // Get account from web3 hook
-  const { account } = useWeb3();
+  const { account, library, active, activate } = useWeb3();
   const { farmInfo } = useFarmInfo(farmAddress, stakedToken.contract[97]);
   const { farmerInfo } = useFarmerInfo(
     account,
@@ -20,6 +23,11 @@ const FarmCard: React.FC<FarmCardProps> = ({
 
   if (!!!farmInfo || !!!farmerInfo) return null;
 
+  const connectToMetaMask = (active: boolean) => {
+    if (window.ethereum.isMetaMask) {
+      activate(injectedWeb3, undefined, true);
+    }
+  };
   return (
     <StyledFarmCard>
       <StyledFarmHeader>
@@ -63,8 +71,9 @@ const FarmCard: React.FC<FarmCardProps> = ({
           <span>~{farmInfo.rewardPerStake}</span>
         </p>
       </StyledFarmInfo>
-      <StyledFarmActions>
-        <StyledFarmAction>
+
+      <StyledFarmActions data-connected={!!account && active}>
+        <StyledFarmAction aria-hidden={!account}>
           <StyledFarmActionInfo>
             <span>Your Stake:</span>
             <span>
@@ -78,7 +87,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
             Unstake
           </StyledFarmActionButton>
         </StyledFarmAction>
-        <StyledFarmAction>
+        <StyledFarmAction aria-hidden={!account}>
           <StyledFarmActionInfo>
             <span>Your Rewards:</span>
             <span>
@@ -92,12 +101,21 @@ const FarmCard: React.FC<FarmCardProps> = ({
             Claim
           </StyledFarmActionButton>
         </StyledFarmAction>
-        <StyledFarmAction justify="center">
+        <StyledFarmAction justify="center" aria-hidden={!account}>
           <StyledFarmActionButton
             id={`stake-${stakedToken.ticker}-${rewardToken.ticker}`}
             size="med"
           >
             Stake
+          </StyledFarmActionButton>
+        </StyledFarmAction>
+        <StyledFarmAction data-login aria-hidden={!!account}>
+          <StyledFarmActionButton
+            id={`login-${stakedToken.ticker}-${rewardToken.ticker}`}
+            size="large"
+            onClick={() => connectToMetaMask(active)}
+          >
+            {isMetaMaskInstalled() ? "Connect to MetaMask" : "Install MetaMask"}
           </StyledFarmActionButton>
         </StyledFarmAction>
       </StyledFarmActions>
@@ -167,7 +185,36 @@ const StyledFarmInfo = styled.div`
   }
 `;
 
-const StyledFarmActions = styled.div``;
+const StyledFarmActions = styled.div`
+  position: relative;
+  &[data-connected="true"] {
+    > div {
+      transition: opacity 0.3s ease 0s, visibility 0.1s ease 0.3s;
+    }
+    > div:not([data-login]) {
+      opacity: 1;
+      visibility: visible;
+    }
+    > div[data-login] {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  &[data-connected="false"] {
+    > div {
+      transition: opacity 0.3s ease 0.1s, visibility 0.1s ease 0s;
+    }
+    > div:not([data-login]) {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    > div[data-login] {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+`;
 
 const StyledFarmAction = styled.div<{ justify?: string }>`
   display: flex;
@@ -183,6 +230,14 @@ const StyledFarmAction = styled.div<{ justify?: string }>`
       justify-content: ${!!justify ? justify : "space-between"};
     `;
   }}
+
+  &[data-login] {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
 `;
 const StyledFarmActionInfo = styled.div`
   align-self: center;
