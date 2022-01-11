@@ -24,4 +24,45 @@ const useWeb3 = (): Web3ReactContextInterface<Web3Provider> => {
   };
 };
 
+export const useWeb3Active = {
+  active: true,
+  activate: (
+    a: AbstractConnector,
+    e?: (err: Error) => void,
+    throwErrors?: boolean
+  ): Promise<void> => new Promise(() => {}),
+  setError: () => {},
+  deactivate: () => {},
+  library: new Web3Provider(EXTERNAL_PROVIDER),
+  account: WALLET_ADDRESS,
+};
+
+export const useWeb3Error = {
+  active: false,
+  activate: (
+    a: AbstractConnector,
+    e?: (err: Error) => void,
+    throwErrors?: boolean
+  ): Promise<void> => new Promise(() => {}),
+  setError: () => {},
+  deactivate: () => {},
+  library: new Web3Provider(EXTERNAL_PROVIDER),
+  account: WALLET_ADDRESS,
+  error: true,
+};
+
+export const useWeb3InactiveNoError = {
+  active: false,
+  activate: (
+    a: AbstractConnector,
+    e?: (err: Error) => void,
+    throwErrors?: boolean
+  ): Promise<void> => new Promise(() => {}),
+  setError: () => {},
+  deactivate: () => {},
+  library: new Web3Provider(EXTERNAL_PROVIDER),
+  account: WALLET_ADDRESS,
+  error: false,
+};
+
 export default useWeb3;
