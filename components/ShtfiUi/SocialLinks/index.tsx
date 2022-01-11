@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { FaGithub, FaTwitter, FaTelegramPlane } from "react-icons/fa";
 import { SocialLinksProps } from "../types";
-import { socialLinksData } from "utils";
+import { socialLinksData } from "config";
 // Get an array of all our networks so we can iterate it
 const networkKeys = (() => {
   let array: string[] = [];
