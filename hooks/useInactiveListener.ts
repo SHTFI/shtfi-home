@@ -11,9 +11,9 @@ const useInactiveListener = (suppress: boolean = false) => {
   // Use effect to do manage updates to the instance
   useEffect(() => {
     // Get the ethereum instance if the window has one
-    const { ethereum } = window as any;
+    const { ethereum } = window;
     // Check if ethereum is defined, inactive, unsuppressed  and without error
-    if (ethereum && ethereum.on && !active && !suppress && !error) {
+    if (!!ethereum && !active && !suppress && !error) {
       // Handler for the connect event
       const handleConnect = () => {
         console.info("Attempting to connect to web3");
@@ -21,32 +21,43 @@ const useInactiveListener = (suppress: boolean = false) => {
         activate(injectedWeb3);
       };
       // Handler for changing the chain ID
-      const handleChainChange = (chainId: string | number) => {
-        console.info(`Attempting to change to chain with the ID: ${chainId}`);
+      const handleChainChange = (...args: unknown[]) => {
+        if (typeof args[0] !== "string" || typeof args[0] !== "number") {
+          throw "Argument should be a string or a number";
+        }
+        console.info(`Attempting to change to chain with the ID: ${args[0]}`);
         activate(injectedWeb3);
       };
       // Handler for changing account
-      const handleAccountChange = (accounts: string[]) => {
+      const handleAccountChange = (...args: unknown[]) => {
+        // Ensure args have been passed
+        if (!!!args || args.length === 0) {
+          throw "You must specify an array of accounts";
+        }
+        // Iterate them to ensure they are all strings
+        for (let i = 0; i < args.length; i++) {
+          if (typeof args[i] !== "string") {
+            throw "Arguments passed to changeAccounts should be Ethereum addresses";
+          }
+        }
         console.info(
           `Attempting to activate the following accounts: `,
-          accounts
+          JSON.stringify(args)
         );
-        if (accounts.length > 0) {
-          activate(injectedWeb3);
-        }
+        activate(injectedWeb3);
       };
       // Add our listeners using the ethereum.on method
-      ethereum.on("connect", handleConnect);
-      ethereum.on("chainChanged", handleChainChange);
-      ethereum.on("accountsChanged", handleAccountChange);
+      ethereum.on("eth_connect", handleConnect);
+      ethereum.on("eth_chainChanged", handleChainChange);
+      ethereum.on("eth_accountsChanged", handleAccountChange);
       // Clean up after ourselves so we don't end up with multiple listeners for each event
       return () => {
         // Ensure the removeListener method is available
         if (ethereum.removeListener) {
           // Remove our listeners
-          ethereum.removeListener("connect", handleConnect);
-          ethereum.removeListener("chainChanged", handleChainChange);
-          ethereum.removeListener("accountsChanged", handleAccountChange);
+          ethereum.removeListener("eth_connect", handleConnect);
+          ethereum.removeListener("eth_chainChanged", handleChainChange);
+          ethereum.removeListener("eth_accountsChanged", handleAccountChange);
         }
       };
     }
