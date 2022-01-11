@@ -18,17 +18,18 @@ describe("useInactiveListener", () => {
     const accountCB = jest.fn();
     // ADd an ethereum provider
     (window as any).ethereum = EXTERNAL_PROVIDER;
+    (window as any).ethereum.isMetamask = false;
     // Add the mock event handler which we will use to verify that the inactive
     // listener has added handlers to the correct methods
     (window as any).ethereum.on = jest.fn((arg: string, cb: any) => {
       switch (arg) {
-        case "connect":
+        case "eth_connect":
           connectCB();
           break;
-        case "chainChanged":
+        case "eth_chainChanged":
           chainCB();
           break;
-        case "accountsChanged":
+        case "eth_accountsChanged":
           accountCB();
           break;
         default:
