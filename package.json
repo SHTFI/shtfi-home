@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ethersproject/bignumber": "^5.5.0",
+    "@metamask/providers": "^8.1.1",
     "@types/styled-components": "^5.1.15",
     "next": "11.1.2",
     "react": "17.0.2",

@@ -1,6 +1,7 @@
 import { LinkProps } from "next/link";
+import { CoinDistribution } from "types";
 // Re add colors here in case ui is used out of the scope of this project
-type Colors =
+export type Colors =
   | "light-blue"
   | "blue"
   | "dark-blue"
@@ -10,10 +11,10 @@ type Colors =
   | "dark";
 
 // Re add sizes here in case ui is used out of the scope of this project
-type Sizes = "tiny" | "small" | "med" | "large" | "full-width";
+export type Sizes = "tiny" | "small" | "med" | "large" | "full-width";
 
 export interface ElementStyleProps {
-  color?: Colors;
+  backgroundColor?: Colors;
   txtColor?: Colors;
   hoverColor?: Colors;
   hoverTxtColor?: Colors;
@@ -28,12 +29,12 @@ export interface ButtonProps
   link?: boolean;
 }
 
-export interface NavBarProps extends React.HTMLAttributesHTML<HTMLDivElement> {
+export interface NavBarProps extends React.HTMLAttributes<HTMLDivElement> {
   mobileIcon?: string;
   mobileIconAlt?: string;
   mobileIconWidth?: number;
   mobileIconHeight?: number;
-  burgerMenuCallback?: MouseEventHandler;
+  burgerMenuCallback?: React.MouseEventHandler;
   logo?: string;
   logoAlt?: string;
   logoWidth?: number;
@@ -50,13 +51,13 @@ export interface NavLinkType extends React.HTMLAttributes<HTMLAnchorElement> {
   iconAlt?: string;
 }
 
-export interface NavLinkProps extends LinkProps, NavLinkType {}
+export interface NavLinkProps extends NavLinkType {}
 
 export interface NavBrandingProps {
   logo?: string;
   logoAlt?: string;
-  logoWidth?;
-  logoHeight?;
+  logoWidth?: number;
+  logoHeight?: number;
   wording?: string;
 }
 

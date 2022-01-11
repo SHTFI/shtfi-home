@@ -1,5 +1,6 @@
 import { Input } from "components";
 import styled from "styled-components";
+import { FarmSectionProps } from "types";
 import FarmCard from "./FarmCard";
 
 const FarmSelectSection: React.FC<FarmSectionProps> = ({ farms, ...rest }) => {
