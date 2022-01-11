@@ -1,8 +1,8 @@
-import { round } from "utils";
+import { ethToNumber, round } from "utils";
 import { useFarmContract } from "hooks";
 import { useState, useEffect } from "react";
-import { formatEther } from "@ethersproject/units";
 import { DEFAULT_FARMER } from "config";
+import { FarmerInfo } from "types";
 
 const useFarmerInfo = (
   userAddress: string | null | undefined,
@@ -30,13 +30,17 @@ const useFarmerInfo = (
   useEffect(() => {
     let mounted = true;
     // Ensure we do not infinitely update
-    if (!!farmAddress && farmContract?.address === farmAddress) {
+    if (
+      !!farmAddress &&
+      farmContract?.address === farmAddress &&
+      !!userAddress
+    ) {
       // Call the pending rewards function
       farmContract.functions
         .pendingShit(farmId, userAddress)
-        .then((data: string) => {
-          // Parse the response from an ETH number
-          const pending = Number(formatEther(data));
+        .then((data: any) => {
+          // First make sure our response is a string
+          let pending = ethToNumber(data.toString());
           // Check we are still mounted
           if (mounted) {
             // Set the state
@@ -55,19 +59,24 @@ const useFarmerInfo = (
     // We know the component is currently mounted
     let mounted = true;
     // Check that the farm Contract is correct
-    if (!!farmAddress && farmContract?.address === farmAddress) {
+    if (
+      !!farmAddress &&
+      farmContract?.address === farmAddress &&
+      !!userAddress
+    ) {
       // Call the function we want
       farmContract?.functions
         ?.userInfo(farmId, userAddress)
         .then((data: string) => {
+          const typedData = data.toString();
           // Check for data
-          if (!!data) {
+          if (!!typedData) {
             // Destructure the data and parse it into a normal number rounded to 5 dp
             // Skip index 2 as we know this is the block number so we don't need to format it
-            let [stakedBalance, claimedRewards, lastClaimBlock] = data
-              .split(",")
-              .map((d: string, i: number) =>
-                i < 2 ? round(Number(formatEther(d)), 5) : Number(d)
+            let [stakedBalance, claimedRewards, lastClaimBlock] = typedData
+              ?.split(",")
+              ?.map((d: string, i: number) =>
+                i < 2 ? round(ethToNumber(d.toString()), 5) : Number(d)
               );
             // Check we are still mounted to prevent any memory leak
             if (mounted) {
