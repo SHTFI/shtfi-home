@@ -23,7 +23,7 @@ const Web3ReactManager: React.FC = ({ children }) => {
       // Otherwise activate injected
       activate(injectedWeb3, undefined, true);
     }
-  }, [triedEager, active, library?.provider.isMetaMask, activate]);
+  }, [triedEager, active, library?.provider, activate]);
 
   // If tried eager is falsy then add our inactive listener
   useInactiveListener(!triedEager);
@@ -34,14 +34,17 @@ const Web3ReactManager: React.FC = ({ children }) => {
   // If we don't have an account context and there's a network error something has gone wrong
   if (!active && error) {
     console.info("Something went tits up with web3");
-    console.error(error);
-    return null;
+    if (error.name === "UnsupportedChainIdError") {
+      console.info("Chain switched to an unsupported network");
+    } else {
+      console.error(error);
+      return null;
+    }
   }
 
   // If neither injected or network is active we must be loading
   if (!active) {
     console.info("Loading web3");
-    return null;
   }
 
   return <>{children}</>;
