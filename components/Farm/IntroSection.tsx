@@ -14,5 +14,7 @@ const FarmIntroSection: React.FC = () => {
 };
 const StyledIntroSection = styled.section`
   padding: var(--large-space);
+  max-width: 600px;
+  margin: auto;
 `;
 export default FarmIntroSection;
