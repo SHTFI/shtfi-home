@@ -68,7 +68,7 @@ describe("<Web3ReactManager/>", () => {
     expect(console.info).toHaveBeenCalledTimes(1);
   });
 
-  it("returns null if web3 is not active", () => {
+  it("returns children if web3 is not active", () => {
     (useEagerConnect as jest.Mock).mockReturnValue(true);
     (useWeb3 as jest.Mock).mockReturnValue(useWeb3InactiveNoError);
     render(
@@ -77,7 +77,7 @@ describe("<Web3ReactManager/>", () => {
       </Web3ReactManager>
     );
     expect(useEagerConnect).toHaveBeenCalledTimes(1);
-    expect(() => screen.getByTestId("child")).toThrow();
+    expect(screen.getByTestId("child")).toBeInTheDocument();
   });
 
   it("returns child components if web3 is active and tried eager is true", () => {
