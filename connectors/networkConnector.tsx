@@ -1,6 +1,16 @@
 import { ConnectorUpdate } from "@web3-react/types";
 import { AbstractConnector } from "@web3-react/abstract-connector";
 import invariant from "tiny-invariant";
+import {
+  AsyncSendable,
+  MiniRpcRequest,
+  MiniRpcRequestMethod,
+  MiniRpcRequestParams,
+  NetworkConnectorArguments,
+  SendAsync,
+  SendAsyncCallback,
+  SendAsyncRequest,
+} from "types";
 
 // Extend the error class to make a Request Error constructor
 export class RequestError extends Error {
