@@ -3,9 +3,14 @@ import styled from "styled-components";
 import { Card, Button } from "components";
 import { useFarmerInfo, useFarmInfo } from "hooks";
 import { useWeb3 } from "hooks";
-import { isMetaMaskInstalled } from "utils";
-import { injectedWeb3 } from "context";
+import {
+  changeNetwork,
+  connectToMetaMask,
+  isMetaMaskInstalled,
+  isSupportedChain,
+} from "utils";
 import { FarmCardProps } from "types";
+import { DEFAULT_CHAIN_ID } from "config";
 
 const FarmCard: React.FC<FarmCardProps> = ({
   stakedToken,
@@ -23,11 +28,6 @@ const FarmCard: React.FC<FarmCardProps> = ({
 
   if (!!!farmInfo || !!!farmerInfo) return null;
 
-  const connectToMetaMask = (active: boolean) => {
-    if (window.ethereum.isMetaMask) {
-      activate(injectedWeb3, undefined, true);
-    }
-  };
   return (
     <StyledFarmCard>
       <StyledFarmHeader>
@@ -110,18 +110,37 @@ const FarmCard: React.FC<FarmCardProps> = ({
           </StyledFarmActionButton>
         </StyledFarmAction>
         <StyledFarmAction data-login aria-hidden={!!account}>
-          <StyledFarmActionButton
-            id={`login-${stakedToken.ticker}-${rewardToken.ticker}`}
-            size="large"
-            onClick={() => connectToMetaMask(active)}
-          >
-            {isMetaMaskInstalled() ? "Connect to MetaMask" : "Install MetaMask"}
-          </StyledFarmActionButton>
+          {!isMetaMaskInstalled() ? (
+            <InstallMetaMaskButton />
+          ) : !isSupportedChain() ? (
+            <UnsupportedChainButton
+              onClick={() => changeNetwork(DEFAULT_CHAIN_ID)}
+            />
+          ) : (
+            <StyledFarmActionButton
+              id={`login-${stakedToken.ticker}-${rewardToken.ticker}`}
+              size="large"
+              onClick={() => connectToMetaMask(activate)}
+            >
+              Connect to MetaMask
+            </StyledFarmActionButton>
+          )}
         </StyledFarmAction>
       </StyledFarmActions>
     </StyledFarmCard>
   );
 };
+
+const InstallMetaMaskButton: React.FC<
+  React.HTMLAttributes<HTMLButtonElement>
+> = ({ ...rest }) => (
+  <StyledFarmActionButton {...rest}>Install MetaMask</StyledFarmActionButton>
+);
+const UnsupportedChainButton: React.FC<
+  React.HTMLAttributes<HTMLButtonElement>
+> = ({ ...rest }) => (
+  <StyledFarmActionButton {...rest}>Switch To BSC</StyledFarmActionButton>
+);
 
 const StyledFarmCard = styled(Card)`
   border: 3px solid var(--blue);
