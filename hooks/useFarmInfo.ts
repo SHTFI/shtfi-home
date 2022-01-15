@@ -3,6 +3,7 @@ import useFarmContract from "./useFarmContract";
 import { round } from "utils";
 import { formatEther } from "@ethersproject/units";
 import { FARM_INFO } from "config/constants";
+import { FarmInfo } from "types";
 
 const useFarmInfo = (
   farmAddress: string,

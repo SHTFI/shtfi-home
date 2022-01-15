@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useWeb3 } from "hooks";
-import { injectedWeb3 } from "context";
+import { injectedWeb3, networkWeb3 } from "context";
 /**
  * Hook to listen to the web3 instance and react to events it emits
  */
@@ -46,8 +46,12 @@ const useInactiveListener = (suppress: boolean = false) => {
         );
         activate(injectedWeb3);
       };
+      const handleDisconnect = () => {
+        activate(networkWeb3);
+      };
       // Add our listeners using the ethereum.on method
       ethereum.on("eth_connect", handleConnect);
+      ethereum.on("eth_disconnect", handleDisconnect);
       ethereum.on("eth_chainChanged", handleChainChange);
       ethereum.on("eth_accountsChanged", handleAccountChange);
       // Clean up after ourselves so we don't end up with multiple listeners for each event
@@ -56,6 +60,7 @@ const useInactiveListener = (suppress: boolean = false) => {
         if (ethereum.removeListener) {
           // Remove our listeners
           ethereum.removeListener("eth_connect", handleConnect);
+          ethereum.removeListener("eth_disconnect", handleDisconnect);
           ethereum.removeListener("eth_chainChanged", handleChainChange);
           ethereum.removeListener("eth_accountsChanged", handleAccountChange);
         }
