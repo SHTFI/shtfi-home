@@ -1,3 +1,5 @@
+import { FarmerInfo, FarmInfo } from "types";
+
 export const FARM_INFO: FarmInfo = {
   stakedAddress: null,
   address: null,
@@ -21,3 +23,7 @@ export const DEFAULT_FARMER: FarmerInfo = {
   totalRewards: 0,
   lastClaimBlock: 0,
 };
+
+export const DEFAULT_CHAIN_ID: number = 97;
+
+export const SUPPORTED_CHAIN_IDS: number[] = [97];

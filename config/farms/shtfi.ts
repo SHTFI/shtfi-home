@@ -1,4 +1,5 @@
 import { core, additional } from "config/tokens";
+import { FarmingPairData, FarmToken } from "types";
 
 const SHTFI_FARMS: FarmingPairData[] = [
   {
